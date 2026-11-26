@@ -1,0 +1,137 @@
+/**
+ * File: js/bubblesort-data.js
+ * Deskripsi: Data cadangan lokal 8 tantangan Bubble Sort dengan variasi objek beragam
+ * (Angka, Orang, Buku, Botol, Kotak, Pohon, Kendaraan, Benda) agar berjalan baik di HTTP & file://.
+ */
+
+const DATA_CADANGAN_BUBBLESORT = [
+    {
+        id: "bs-01",
+        judul: "Blok Angka Dasar",
+        kategori: "Angka",
+        arah: "asc",
+        labelArah: "Terkecil ke Terbesar",
+        atribut: "Nilai Angka",
+        deskripsi: "Bandingkan dua blok angka bersebelahan dan urutkan dari nilai terkecil ke terbesar!",
+        objek: [
+            { id: "n1", nama: "Blok 12", nilai: 12, tampilNilai: "12", gambar: "assets/images/stage-2-bubble-sort/objects/block-1.png", angkaBlok: "12" },
+            { id: "n2", nama: "Blok 25", nilai: 25, tampilNilai: "25", gambar: "assets/images/stage-2-bubble-sort/objects/block-2.png", angkaBlok: "25" },
+            { id: "n3", nama: "Blok 38", nilai: 38, tampilNilai: "38", gambar: "assets/images/stage-2-bubble-sort/objects/block-3.png", angkaBlok: "38" },
+            { id: "n4", nama: "Blok 54", nilai: 54, tampilNilai: "54", gambar: "assets/images/stage-2-bubble-sort/objects/block-4.png", angkaBlok: "54" }
+        ]
+    },
+    {
+        id: "bs-02",
+        judul: "Barisan Siswa Berdasarkan Tinggi Badan",
+        kategori: "Manusia",
+        arah: "asc",
+        labelArah: "Terpendek ke Tertinggi",
+        atribut: "Tinggi Badan",
+        deskripsi: "Urutkan barisan siswa dari yang paling pendek hingga paling tinggi menggunakan Bubble Sort!",
+        objek: [
+            { id: "p1", nama: "Bima", nilai: 135, tampilNilai: "135 cm", gambar: "assets/images/stage-2-bubble-sort/characters/person-1.png" },
+            { id: "p2", nama: "Raka", nilai: 148, tampilNilai: "148 cm", gambar: "assets/images/stage-2-bubble-sort/characters/person-2.png" },
+            { id: "p3", nama: "Naufal", nilai: 158, tampilNilai: "158 cm", gambar: "assets/images/stage-2-bubble-sort/characters/person-3.png" },
+            { id: "p4", nama: "Bagas", nilai: 167, tampilNilai: "167 cm", gambar: "assets/images/stage-2-bubble-sort/characters/person-4.png" },
+            { id: "p5", nama: "Dimas", nilai: 176, tampilNilai: "176 cm", gambar: "assets/images/stage-2-bubble-sort/characters/person-5.png" }
+        ]
+    },
+    {
+        id: "bs-03",
+        judul: "Ketebalan Buku di Perpustakaan",
+        kategori: "Buku",
+        arah: "asc",
+        labelArah: "Tertipis ke Tertebal",
+        atribut: "Jumlah Halaman",
+        deskripsi: "Susun koleksi buku dari halaman paling sedikit (tipis) ke paling banyak (tebal)!",
+        objek: [
+            { id: "bk1", nama: "Modul Mini", nilai: 60, tampilNilai: "60 hlm", gambar: "assets/images/stage-2-bubble-sort/objects/book-1.png" },
+            { id: "bk2", nama: "Buku Saku", nilai: 120, tampilNilai: "120 hlm", gambar: "assets/images/stage-2-bubble-sort/objects/book-2.png" },
+            { id: "bk3", nama: "Buku Tulis", nilai: 210, tampilNilai: "210 hlm", gambar: "assets/images/stage-2-bubble-sort/objects/book-3.png" },
+            { id: "bk4", nama: "Paket RPL", nilai: 340, tampilNilai: "340 hlm", gambar: "assets/images/stage-2-bubble-sort/objects/book-4.png" },
+            { id: "bk5", nama: "Ensiklopedia", nilai: 520, tampilNilai: "520 hlm", gambar: "assets/images/stage-2-bubble-sort/objects/book-6.png" }
+        ]
+    },
+    {
+        id: "bs-04",
+        judul: "Kapasitas Botol Air Minum",
+        kategori: "Botol",
+        arah: "desc",
+        labelArah: "Terbesar ke Terkecil",
+        atribut: "Kapasitas Volume",
+        deskripsi: "Hati-hati! Kali ini urutkan botol dari kapasitas PALING BESAR ke PALING KECIL!",
+        objek: [
+            { id: "bt1", nama: "Botol Mini", nilai: 250, tampilNilai: "250 ml", gambar: "assets/images/stage-2-bubble-sort/objects/bottle-1.png" },
+            { id: "bt2", nama: "Botol Kecil", nilai: 450, tampilNilai: "450 ml", gambar: "assets/images/stage-2-bubble-sort/objects/bottle-2.png" },
+            { id: "bt3", nama: "Botol Sedang", nilai: 650, tampilNilai: "650 ml", gambar: "assets/images/stage-2-bubble-sort/objects/bottle-3.png" },
+            { id: "bt4", nama: "Botol Besar", nilai: 1000, tampilNilai: "1000 ml", gambar: "assets/images/stage-2-bubble-sort/objects/bottle-4.png" },
+            { id: "bt5", nama: "Botol Jumbo", nilai: 1800, tampilNilai: "1800 ml", gambar: "assets/images/stage-2-bubble-sort/objects/bottle-6.png" }
+        ]
+    },
+    {
+        id: "bs-05",
+        judul: "Berat Kotak Kargo Pengiriman",
+        kategori: "Kotak",
+        arah: "asc",
+        labelArah: "Teringan ke Terberat",
+        atribut: "Berat Paket",
+        deskripsi: "Urutkan kotak kargo logistik dari bobot paling ringan hingga paling berat!",
+        objek: [
+            { id: "bx1", nama: "Paket A", nilai: 3, tampilNilai: "3 kg", gambar: "assets/images/stage-2-bubble-sort/objects/box-1.png" },
+            { id: "bx2", nama: "Paket B", nilai: 7, tampilNilai: "7 kg", gambar: "assets/images/stage-2-bubble-sort/objects/box-2.png" },
+            { id: "bx3", nama: "Paket C", nilai: 14, tampilNilai: "14 kg", gambar: "assets/images/stage-2-bubble-sort/objects/box-3.png" },
+            { id: "bx4", nama: "Paket D", nilai: 22, tampilNilai: "22 kg", gambar: "assets/images/stage-2-bubble-sort/objects/box-4.png" },
+            { id: "bx5", nama: "Paket E", nilai: 35, tampilNilai: "35 kg", gambar: "assets/images/stage-2-bubble-sort/objects/box-6.png" }
+        ]
+    },
+    {
+        id: "bs-06",
+        judul: "Tinggi Pohon di Taman Kota",
+        kategori: "Pohon",
+        arah: "desc",
+        labelArah: "Tertinggi ke Terpendek",
+        atribut: "Tinggi Pohon",
+        deskripsi: "Urutkan pohon dari yang paling tinggi menuju yang paling rendah!",
+        objek: [
+            { id: "tr1", nama: "Bibit", nilai: 2, tampilNilai: "2 m", gambar: "assets/images/stage-2-bubble-sort/objects/tree-1.png" },
+            { id: "tr2", nama: "Pohon Muda", nilai: 4, tampilNilai: "4 m", gambar: "assets/images/stage-2-bubble-sort/objects/tree-2.png" },
+            { id: "tr3", nama: "Pohon Sedang", nilai: 7, tampilNilai: "7 m", gambar: "assets/images/stage-2-bubble-sort/objects/tree-3.png" },
+            { id: "tr4", nama: "Pohon Rindang", nilai: 11, tampilNilai: "11 m", gambar: "assets/images/stage-2-bubble-sort/objects/tree-4.png" },
+            { id: "tr5", nama: "Pohon Raksasa", nilai: 16, tampilNilai: "16 m", gambar: "assets/images/stage-2-bubble-sort/objects/tree-6.png" }
+        ]
+    },
+    {
+        id: "bs-07",
+        judul: "Kecepatan Jenis Kendaraan",
+        kategori: "Kendaraan",
+        arah: "asc",
+        labelArah: "Terlambat ke Tercepat",
+        atribut: "Kecepatan Maksimal",
+        deskripsi: "Bandingkan kecepatan berbagai kendaraan dan urutkan dari yang paling lambat ke paling cepat!",
+        objek: [
+            { id: "vh1", nama: "Sepeda", nilai: 20, tampilNilai: "20 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-1.png" },
+            { id: "vh2", nama: "Skuter", nilai: 45, tampilNilai: "45 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-2.png" },
+            { id: "vh3", nama: "Motor", nilai: 95, tampilNilai: "95 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-3.png" },
+            { id: "vh4", nama: "Mobil", nilai: 160, tampilNilai: "160 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-4.png" },
+            { id: "vh5", nama: "Kereta Cepat", nilai: 320, tampilNilai: "320 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-5.png" },
+            { id: "vh6", nama: "Pesawat", nilai: 850, tampilNilai: "850 km/j", gambar: "assets/images/stage-2-bubble-sort/objects/vehicle-6.png" }
+        ]
+    },
+    {
+        id: "bs-08",
+        judul: "Ukuran Bola di Gudang Olahraga",
+        kategori: "Benda",
+        arah: "desc",
+        labelArah: "Terbesar ke Terkecil",
+        atribut: "Diameter Bola",
+        deskripsi: "Tantangan akhir! Urutkan benda berbentuk bola dari diameter terbesar ke terkecil!",
+        objek: [
+            { id: "ob1", nama: "Kelereng", nilai: 3, tampilNilai: "3 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-1.png" },
+            { id: "ob2", nama: "Bola Tenis", nilai: 7, tampilNilai: "7 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-2.png" },
+            { id: "ob3", nama: "Bola Sepak", nilai: 22, tampilNilai: "22 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-3.png" },
+            { id: "ob4", nama: "Bola Basket", nilai: 25, tampilNilai: "25 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-4.png" },
+            { id: "ob5", nama: "Bola Pantai", nilai: 42, tampilNilai: "42 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-5.png" },
+            { id: "ob6", nama: "Bola Senam", nilai: 65, tampilNilai: "65 cm", gambar: "assets/images/stage-2-bubble-sort/objects/object-6.png" }
+        ]
+    }
+];

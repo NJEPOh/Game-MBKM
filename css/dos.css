@@ -1,0 +1,293 @@
+/**
+ * File: css/dos.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art + Terminal Command Prompt Autentik untuk Stage 3: DOS.
+ */
+
+body.latar-dos {
+    background-color: #2f3833;
+    background-image:
+        url("../assets/images/stage-3-dos/backgrounds/bg-dos.png"),
+        linear-gradient(180deg, #394842 0%, #594433 65%, #2e342d 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.pita-misi-dos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.pil-misi-dos {
+    font-family: var(--font-pixel-ui);
+    padding: 5px 11px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid var(--ui-garis-pixel);
+    background-color: var(--ui-krem-kartu);
+    color: var(--ui-teks-gelap);
+    cursor: pointer;
+}
+
+.pil-misi-dos.selesai {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+.pil-misi-dos.aktif {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+.kotak-misi-dos {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.badge-materi-dos {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--ui-kayu-sedang);
+    color: var(--ui-teks-terang);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 3px 10px;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.layout-dos {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) 330px;
+    gap: 18px;
+    align-items: stretch;
+}
+
+/* Terminal DOS Klasik yang Autentik & Mudah Dibaca */
+.bingkai-terminal-dos {
+    background-color: #2f2a24;
+    border: 4px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-panel);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.bar-judul-terminal {
+    background-color: #1c3a57;
+    color: #ffffff;
+    border-bottom: 3px solid var(--ui-garis-pixel);
+    padding: 8px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--font-terminal);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.layar-terminal-dos {
+    background-color: #0b140f;
+    color: #d6f7df;
+    font-family: var(--font-terminal);
+    font-size: 15px;
+    line-height: 1.45;
+    padding: 14px 16px;
+    min-height: 330px;
+    max-height: 410px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    cursor: text;
+}
+
+.baris-output-dos {
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.baris-output-dos.cmd-echo {
+    color: #96f2b3;
+    font-weight: 700;
+}
+
+.baris-output-dos.cmd-error {
+    color: #ff9c8f;
+}
+
+.baris-output-dos.cmd-sukses {
+    color: #ffd97d;
+}
+
+.baris-input-dos {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background-color: #0f1c15;
+    border-top: 2px solid #234232;
+    font-family: var(--font-terminal);
+}
+
+.prompt-dos {
+    color: #7ee79f;
+    font-weight: 700;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.input-perintah-dos {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: var(--font-terminal);
+    font-size: 15px;
+    font-weight: 700;
+    caret-color: #7ee79f;
+}
+
+.input-perintah-dos::placeholder {
+    color: #5b8269;
+    font-weight: 400;
+}
+
+.bar-kontrol-dos {
+    background-color: #212a24;
+    border-top: 2px solid var(--ui-garis-pixel);
+    padding: 8px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Panel Pohon Direktori Virtual Cozy Pixel */
+.panel-vfs-dos {
+    background-color: var(--ui-krem-lembut);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.header-vfs-dos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed var(--ui-kayu-terang);
+}
+
+.header-vfs-dos img {
+    width: 48px;
+    height: 48px;
+}
+
+.jalur-aktif-vfs {
+    font-family: var(--font-terminal);
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #16241b;
+    color: #96f2b3;
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 6px 10px;
+    word-break: break-all;
+}
+
+.pohon-direktori-vfs {
+    background-color: var(--ui-krem-kartu);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 10px 12px;
+    min-height: 220px;
+    max-height: 310px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.entri-vfs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-terminal);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ui-teks-gelap);
+    padding: 4px 6px;
+}
+
+.entri-vfs.entri-aktif {
+    background-color: var(--warna-kuning-pastel);
+    border: 2px solid var(--ui-garis-pixel);
+}
+
+.entri-vfs img {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+.dekorasi-meja-dos {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 8px;
+    border-top: 2px dashed var(--ui-kayu-terang);
+}
+
+.dekorasi-meja-dos img {
+    width: 40px;
+    height: 40px;
+}
+
+/* Tabel Referensi 11 Perintah DOS */
+.tabel-referensi-dos {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 14px;
+    margin: 12px 0;
+}
+
+.tabel-referensi-dos th,
+.tabel-referensi-dos td {
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 6px 8px;
+}
+
+.tabel-referensi-dos th {
+    background-color: var(--ui-kayu-sedang);
+    color: #ffffff;
+    font-family: var(--font-pixel-ui);
+}
+
+.tabel-referensi-dos code {
+    font-family: var(--font-terminal);
+    font-weight: 700;
+    background-color: var(--ui-krem-lembut);
+    padding: 1px 4px;
+}
+
+@media (max-width: 920px) {
+    .layout-dos {
+        grid-template-columns: 1fr;
+    }
+}

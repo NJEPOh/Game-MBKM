@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Detail Kemampuan 3 Materi</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hasil.css">
+</head>
+<body class="latar-hasil" data-bgm="music-background-9.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Detail Skor</span>
+            <span class="info-pemain-header">Evaluasi Penguasaan 3 Materi</span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-detail">
+            <h1 id="judul-detail" class="judul-halaman">Detail Kemampuan</h1>
+            <p class="subjudul-halaman">
+                Analisis tingkat penguasaan untuk setiap materi Computational Thinking.
+            </p>
+
+            <div class="baris-status-misi">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <img src="assets/images/common/mascot.png" alt="Maskot Misi Logika" width="52" height="52">
+                    <div class="item-status-misi">
+                        Siswa: <span id="nama-pemain-detail">Siswa SMK</span>
+                    </div>
+                </div>
+                <div class="item-status-misi">
+                    Mode: <span id="mode-pemain-detail" class="mode-normal">Normal</span>
+                </div>
+                <div class="item-status-misi">
+                    Rata-rata: <span id="total-persen-detail">0%</span>
+                </div>
+            </div>
+
+            <div class="daftar-detail-pilar">
+                <!-- 1. Algoritma Sequential -->
+                <article class="kartu-detail-kemampuan">
+                    <img src="assets/images/common/ui/icon-sequential.png" alt="Ikon Sequential" width="64" height="64">
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            Stage 1: Algoritma Sequential
+                            <span id="detail-level-sequential" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-sequential" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-sequential" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-sequential" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-sequential" class="sub-total-poin" style="font-size: 14px;">0 / 100 Poin</div>
+                    </div>
+                </article>
+
+                <!-- 2. Algoritma Bubble Sort -->
+                <article class="kartu-detail-kemampuan">
+                    <img src="assets/images/common/ui/icon-bubblesort.png" alt="Ikon Bubble Sort" width="64" height="64">
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            Stage 2: Algoritma Bubble Sort
+                            <span id="detail-level-bubbleSort" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-bubbleSort" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-bubbleSort" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-bubbleSort" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-bubbleSort" class="sub-total-poin" style="font-size: 14px;">0 / 100 Poin</div>
+                    </div>
+                </article>
+
+                <!-- 3. DOS Command Line -->
+                <article class="kartu-detail-kemampuan">
+                    <img src="assets/images/common/ui/icon-dos.png" alt="Ikon DOS" width="64" height="64">
+                    <div>
+                        <h2 class="judul-pilar-skor">
+                            Stage 3: DOS Command Line
+                            <span id="detail-level-dos" class="lencana-level-kemampuan level-berkembang">Berkembang</span>
+                        </h2>
+                        <div class="batang-progres-luar" style="margin-top: 8px;">
+                            <div id="detail-batang-dos" class="batang-progres-dalam" style="width: 0%;"></div>
+                        </div>
+                        <p id="detail-deskripsi-dos" class="deskripsi-capaian-detail"></p>
+                    </div>
+                    <div class="kotak-nilai-detail">
+                        <div id="detail-skor-dos" class="nilai-besar-detail">0%</div>
+                        <div id="detail-persen-dos" class="sub-total-poin" style="font-size: 14px;">0 / 100 Poin</div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="baris-tombol">
+                <button type="button" id="tombol-kembali-ringkasan" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                    Kembali ke Hasil
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/detail.js"></script>
+</body>
+</html>

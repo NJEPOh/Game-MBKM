@@ -1,0 +1,345 @@
+/**
+ * File: css/bubblesort.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk Stage 2: Algoritma Bubble Sort.
+ */
+
+body.latar-bubblesort {
+    background-color: #4f3824;
+    background-image:
+        url("../assets/images/stage-2-bubble-sort/backgrounds/bg-bubblesort.png"),
+        linear-gradient(180deg, #6e4e34 0%, #9b6a44 60%, #4e3626 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.kotak-misi-bs {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.badge-arah-sort {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.badge-arah-sort.arah-desc {
+    background-color: var(--warna-biru-langit);
+    color: #ffffff;
+}
+
+/* Indikator Putaran (Pass) */
+.baris-pass-bs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.pil-pass-bs {
+    font-family: var(--font-pixel-ui);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 12px;
+    border: 2px solid var(--ui-garis-pixel);
+    background-color: var(--ui-krem-lembut);
+    color: var(--ui-teks-sedang);
+}
+
+.pil-pass-bs.aktif {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+.pil-pass-bs.selesai {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+/* Arena Deret Objek Visual */
+.arena-objek-bs {
+    background-color: var(--ui-krem-lembut);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -8px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 26px 16px 20px;
+    margin-bottom: 16px;
+}
+
+.deret-kartu-bs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-top: 14px;
+    min-height: 245px;
+}
+
+.kartu-objek-bs {
+    position: relative;
+    width: 148px;
+    min-height: 215px;
+    background-color: var(--ui-krem-kartu);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 12px 8px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease;
+}
+
+.kartu-objek-bs.sedang-dibandingkan {
+    background-color: var(--warna-kuning-pastel);
+    border-color: var(--warna-oranye-hangat);
+    outline: 3px solid var(--warna-emas-hangat);
+    outline-offset: 3px;
+    transform: translateY(-8px);
+}
+
+.kartu-objek-bs.sudah-terurut {
+    background-color: var(--warna-hijau-pastel);
+    border-color: var(--warna-hijau-gelap);
+}
+
+.kartu-objek-bs.tukar-kanan {
+    transform: translate(162px, -12px);
+    z-index: 4;
+}
+
+.kartu-objek-bs.tukar-kiri {
+    transform: translate(-162px, -12px);
+    z-index: 4;
+}
+
+.lencana-posisi-bs {
+    position: absolute;
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--font-pixel-ui);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border: 2px solid var(--ui-garis-pixel);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 2;
+}
+
+.lencana-posisi-bs.lencana-banding {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+.lencana-posisi-bs.lencana-terurut {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+.lencana-posisi-bs img {
+    width: 14px;
+    height: 14px;
+}
+
+.bungkus-visual-bs {
+    position: relative;
+    width: 120px;
+    height: 132px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.bungkus-visual-bs img {
+    max-width: 120px;
+    max-height: 132px;
+}
+
+.angka-overlay-bs {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-pixel-judul);
+    font-size: 20px;
+    color: var(--ui-teks-gelap);
+    text-shadow: 1px 1px 0 #ffffff;
+    pointer-events: none;
+}
+
+.nama-objek-bs {
+    font-family: var(--font-pixel-ui);
+    font-size: 13px;
+    color: var(--ui-teks-sedang);
+    text-align: center;
+}
+
+.nilai-objek-bs {
+    font-family: var(--font-pixel-ui);
+    font-size: 15px;
+    font-weight: 700;
+    background-color: var(--ui-krem-lembut);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 3px 10px;
+    color: var(--ui-kayu-gelap);
+}
+
+/* Panel Tindakan Bandingkan: Tukar vs Pertahankan */
+.panel-keputusan-bs {
+    background-color: var(--ui-kayu-panel);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px 20px;
+    text-align: center;
+    color: var(--ui-teks-terang);
+}
+
+.teks-perbandingan-aktif {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--ui-teks-krem);
+    margin-bottom: 12px;
+}
+
+.baris-aksi-bs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.tombol-aksi-bs {
+    min-width: 220px;
+}
+
+/* Legenda Visual */
+.legenda-bs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ui-teks-sedang);
+}
+
+.item-legenda-bs {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.item-legenda-bs img {
+    width: 22px;
+    height: 22px;
+}
+
+/* Mode Belajar (Demo Langkah demi Langkah) */
+.panel-demo-bs {
+    background-color: var(--ui-krem-kartu);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+    margin-top: 14px;
+}
+
+.deret-demo-bs {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 14px 0;
+}
+
+.kotak-demo-item {
+    width: 72px;
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 8px 4px;
+    font-family: var(--font-pixel-judul);
+    font-size: 16px;
+}
+
+.kotak-demo-item.demo-banding {
+    background-color: var(--warna-kuning-pastel);
+    border-color: var(--warna-oranye-hangat);
+    transform: translateY(-6px);
+}
+
+.kotak-demo-item.demo-terurut {
+    background-color: var(--warna-hijau-pastel);
+    border-color: var(--warna-hijau-gelap);
+}
+
+.pita-progres-bs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.pil-tantangan-bs {
+    font-family: var(--font-pixel-ui);
+    padding: 5px 12px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 2px solid var(--ui-garis-pixel);
+    background-color: var(--ui-krem-kartu);
+    color: var(--ui-teks-gelap);
+    cursor: pointer;
+}
+
+.pil-tantangan-bs.selesai {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+.pil-tantangan-bs.aktif {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+@media (max-width: 720px) {
+    .kartu-objek-bs {
+        width: 132px;
+        min-height: 195px;
+    }
+    .kartu-objek-bs.tukar-kanan { transform: translate(140px, -8px); }
+    .kartu-objek-bs.tukar-kiri { transform: translate(-140px, -8px); }
+    .tombol-aksi-bs {
+        width: 100%;
+    }
+}

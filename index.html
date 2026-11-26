@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Media Pembelajaran Computational Thinking</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="latar-awal" data-bgm="music-background-1.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Misi Logika</span>
+            <span class="info-pemain-header">Game Edukasi Computational Thinking — SMK Kelas X</span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-krem tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('stages.html', false)"
+            >
+                Menu Stage
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game panel-awal" aria-labelledby="judul-utama">
+            <div class="hero-beranda">
+                <div class="bungkus-logo-awal">
+                    <img
+                        src="assets/images/common/logo.png"
+                        alt="Logo Misi Logika"
+                        width="360"
+                        height="180"
+                    >
+                </div>
+
+                <h1 id="judul-utama" class="judul-halaman">Misi Logika: Berpikir Komputasional</h1>
+                <p class="subjudul-halaman">
+                    Petualangan <strong>2D Platformer Edukasi</strong>: jelajahi dunia Cozy Pixel Art, lompati rintangan, hadapi monster,
+                    dan taklukkan <strong>3 Gerbang Soal</strong> pada materi <strong>Sequential</strong>, <strong>Bubble Sort</strong>, dan <strong>DOS</strong>!
+                </p>
+
+                <div class="kotak-sambutan-maskot">
+                    <img
+                        src="assets/images/common/characters/player-portrait.png"
+                        alt="Karakter utama siswa SMK"
+                        width="72"
+                        height="96"
+                    >
+                    <div class="teks-sambutan-maskot">
+                        <strong>Halo, Siswa Kelas X SMK!</strong>
+                        <p>
+                            Gunakan <strong>A / D</strong> untuk bergerak dan <strong>W / Space</strong> untuk melompat.
+                            Kumpulkan koin, aktifkan Checkpoint, dan buka 3 gerbang materi di tiap stage untuk mencapai Finish!
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="baris-form-awal">
+                <div class="formulir-pemain">
+                    <label for="input-nama-pemain" class="label-input">Nama Siswa / Pemain</label>
+                    <input
+                        type="text"
+                        id="input-nama-pemain"
+                        class="input-nama"
+                        placeholder="Ketik namamu..."
+                        maxlength="32"
+                        autocomplete="off"
+                    >
+                    <div id="pesan-validasi-awal" class="kotak-pesan tersembunyi" role="alert"></div>
+                </div>
+
+                <div class="pemilih-mode-awal" role="group" aria-labelledby="label-mode-kesulitan">
+                    <div id="label-mode-kesulitan" class="label-input">Pilih Tingkat Kesulitan (Nyawa / HP)</div>
+                    <div class="baris-mode-awal">
+                        <button
+                            type="button"
+                            class="tombol-mode mode-easy"
+                            data-mode="easy"
+                            aria-pressed="false"
+                            data-sfx-hover
+                            data-sfx-click
+                        >
+                            <span class="judul-mode">Easy</span>
+                            <span class="sub-mode">7 HP (Nyawa)</span>
+                        </button>
+                        <button
+                            type="button"
+                            class="tombol-mode mode-normal aktif"
+                            data-mode="normal"
+                            aria-pressed="true"
+                            data-sfx-hover
+                            data-sfx-click
+                        >
+                            <span class="judul-mode">Normal</span>
+                            <span class="sub-mode">5 HP (Nyawa)</span>
+                        </button>
+                        <button
+                            type="button"
+                            class="tombol-mode mode-hard"
+                            data-mode="hard"
+                            aria-pressed="false"
+                            data-sfx-hover
+                            data-sfx-click
+                        >
+                            <span class="judul-mode">Hard</span>
+                            <span class="sub-mode">3 HP (Nyawa)</span>
+                        </button>
+                    </div>
+                    <p id="deskripsi-mode-awal" class="deskripsi-mode-awal">
+                        Mode Normal: 5 HP (Nyawa) seimbang untuk petualangan platformer &amp; tantangan logika.
+                    </p>
+                </div>
+            </div>
+
+            <div class="baris-tombol">
+                <button
+                    type="button"
+                    id="tombol-mulai"
+                    class="tombol tombol-utama"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    <img src="assets/images/common/ui/icon-play.png" alt="Mulai" width="24" height="24">
+                    Mulai Bermain
+                </button>
+                <button
+                    type="button"
+                    id="tombol-petunjuk"
+                    class="tombol tombol-sekunder"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Panduan
+                </button>
+            </div>
+
+            <!-- Navigasi Materi Langsung -->
+            <section class="seksi-navigasi-materi" aria-labelledby="judul-navigasi-materi">
+                <h2 id="judul-navigasi-materi" class="judul-navigasi-materi">Navigasi Materi Pembelajaran (3 Stage)</h2>
+                <div class="grid-navigasi-materi">
+                    <div
+                        class="kartu-nav-materi"
+                        role="button"
+                        tabindex="0"
+                        data-target-halaman="stage1-sequential.html"
+                        data-sfx-hover
+                        data-sfx-click
+                    >
+                        <span class="badge-stage-kecil">STAGE 1</span>
+                        <img src="assets/images/common/ui/icon-sequential.png" alt="Ikon Algoritma Sequential" width="64" height="64">
+                        <h3>Algoritma Sequential</h3>
+                        <p>Urutkan 20 kegiatan sehari-hari menjadi langkah yang logis dan runtut.</p>
+                    </div>
+
+                    <div
+                        class="kartu-nav-materi"
+                        role="button"
+                        tabindex="0"
+                        data-target-halaman="stage2-bubblesort.html"
+                        data-sfx-hover
+                        data-sfx-click
+                    >
+                        <span class="badge-stage-kecil">STAGE 2</span>
+                        <img src="assets/images/common/ui/icon-bubblesort.png" alt="Ikon Algoritma Bubble Sort" width="64" height="64">
+                        <h3>Algoritma Bubble Sort</h3>
+                        <p>Bandingkan dua objek bersebelahan lalu tukar atau pertahankan posisinya.</p>
+                    </div>
+
+                    <div
+                        class="kartu-nav-materi"
+                        role="button"
+                        tabindex="0"
+                        data-target-halaman="stage3-dos.html"
+                        data-sfx-hover
+                        data-sfx-click
+                    >
+                        <span class="badge-stage-kecil">STAGE 3</span>
+                        <img src="assets/images/common/ui/icon-dos.png" alt="Ikon DOS Command Line" width="64" height="64">
+                        <h3>DOS Command Line</h3>
+                        <p>Praktik perintah MD, DIR, CD, COPY CON, COPY, REN, DEL, hingga RD.</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="baris-reset-bawah">
+                <div id="info-progres-awal" class="info-progres-tersimpan">
+                    Status Progres: <span>Belum ada progres tersimpan</span>
+                </div>
+                <button
+                    type="button"
+                    id="tombol-reset-progres"
+                    class="tombol tombol-reset-progres"
+                    data-sfx-hover
+                    data-sfx-click
+                >
+                    Reset Progress
+                </button>
+                <div class="baris-dekorasi-cozy" aria-hidden="true">
+                    <img src="assets/images/common/decorations/deco-grass.png" alt="" width="36" height="24">
+                    <img src="assets/images/common/decorations/deco-flower.png" alt="" width="32" height="32">
+                    <img src="assets/images/common/decorations/deco-plant.png" alt="" width="32" height="32">
+                    <img src="assets/images/common/decorations/deco-flower.png" alt="" width="32" height="32">
+                    <img src="assets/images/common/decorations/deco-grass.png" alt="" width="36" height="24">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Dialog Konfirmasi Reset Progress -->
+    <div
+        id="modal-konfirmasi-reset"
+        class="lapisan-modal-pixel tersembunyi"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="judul-modal-reset"
+        aria-describedby="pesan-modal-reset"
+    >
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Konfirmasi Reset</span>
+            <h2 id="judul-modal-reset" class="judul-modal-pixel">Reset Progres Belajar?</h2>
+            <p id="pesan-modal-reset" class="teks-modal-pixel">
+                Semua skor dan progres di Stage 1, Stage 2, dan Stage 3 akan dihapus. Tindakan ini tidak bisa dibatalkan.
+            </p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-batal-reset" class="tombol tombol-netral" data-sfx-hover data-sfx-click>
+                    Batal
+                </button>
+                <button type="button" id="tombol-konfirmasi-reset" class="tombol tombol-bahaya" data-sfx-hover data-sfx-click>
+                    Ya, Reset Semua
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

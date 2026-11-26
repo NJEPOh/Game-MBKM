@@ -1,0 +1,320 @@
+/**
+ * File: css/hasil.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk Halaman Hasil (hasil.html)
+ * dan Detail Kemampuan (detail.html) untuk 3 Stage Pembelajaran.
+ */
+
+body.latar-hasil {
+    background-color: #364538;
+    background-image:
+        url("../assets/images/common/backgrounds/bg-results.png"),
+        linear-gradient(180deg, #e09f5a 0%, #689f63 55%, #3d5a3c 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.spanduk-pencapaian {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    background-color: var(--ui-krem-lembut);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-panel);
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    animation: kilauBenarPixel 0.3s steps(3, end);
+}
+
+.spanduk-kiri {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    flex: 1;
+    min-width: 280px;
+}
+
+.spanduk-ikon-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-utama-hasil {
+    text-align: left;
+    flex: 1;
+}
+
+.label-penjelajah-hasil {
+    font-family: var(--font-pixel-ui);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ui-teks-sedang);
+}
+
+.nama-pemain-besar {
+    font-family: var(--font-pixel-judul);
+    font-size: clamp(20px, 2.5vw, 28px);
+    color: var(--ui-kayu-gelap);
+    margin: 4px 0 8px;
+}
+
+.baris-lencana-hasil {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.predikat-pencapaian {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+    border: 2px solid var(--ui-garis-pixel);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 4px 12px;
+}
+
+.ringkasan-teks-pencapaian {
+    font-size: 16px;
+    color: var(--ui-teks-sedang);
+}
+
+.kotak-total-skor {
+    background-color: var(--ui-kayu-panel);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 2px solid var(--warna-emas-hangat);
+    outline-offset: -5px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 24px;
+    text-align: center;
+    min-width: 230px;
+    color: var(--ui-teks-terang);
+}
+
+.label-total-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 15px;
+    color: var(--ui-teks-krem);
+    margin-bottom: 4px;
+}
+
+.angka-total-skor {
+    font-family: var(--font-pixel-judul);
+    font-size: clamp(32px, 3.6vw, 44px);
+    color: var(--warna-emas-hangat);
+    text-shadow: 2px 2px 0 var(--ui-garis-pixel);
+    line-height: 1.25;
+}
+
+.sub-total-poin {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 6px;
+}
+
+/* Ringkasan Statistik Cepat (Benar, Salah, Waktu) */
+.baris-metrik-ringkas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.kartu-metrik {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 16px;
+    text-align: center;
+}
+
+.kartu-metrik .label-metrik {
+    font-family: var(--font-pixel-ui);
+    font-size: 14px;
+    color: var(--ui-teks-sedang);
+}
+
+.kartu-metrik .nilai-metrik {
+    font-family: var(--font-pixel-judul);
+    font-size: 22px;
+    color: var(--ui-kayu-gelap);
+    margin-top: 6px;
+}
+
+/* Grid 3 Stage pada hasil.html */
+.grid-skor-pilar {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.kartu-skor-pilar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+}
+
+.kepala-kartu-skor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.kepala-kartu-skor img {
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+}
+
+.judul-pilar-skor {
+    font-family: var(--font-pixel-ui);
+    font-size: 18px;
+    color: var(--ui-kayu-gelap);
+}
+
+.wilayah-pilar-skor {
+    font-size: 14px;
+    color: var(--ui-teks-sedang);
+}
+
+.batang-progres-luar {
+    width: 100%;
+    height: 20px;
+    background-color: var(--ui-krem-gelap);
+    border: 3px solid var(--ui-garis-pixel);
+    overflow: hidden;
+    padding: 2px;
+}
+
+.batang-progres-dalam {
+    height: 100%;
+    background-color: var(--warna-hijau-alami);
+    transition: width 0.35s steps(8, end);
+}
+
+.angka-skor-pilar {
+    font-family: var(--font-pixel-ui);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ui-kayu-gelap);
+}
+
+.stat-tambahan-stage {
+    font-size: 14px;
+    color: var(--ui-teks-sedang);
+    background-color: var(--ui-krem-kartu);
+    border: 2px solid var(--ui-kayu-terang);
+    padding: 8px 10px;
+    line-height: 1.45;
+}
+
+/* Ringkasan Materi yang Dipelajari */
+.panel-ringkasan-materi {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 20px;
+    margin-bottom: 20px;
+}
+
+.grid-ringkasan-materi {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 12px;
+}
+
+.kartu-ringkasan-materi {
+    background-color: var(--ui-krem-kartu);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--ui-teks-sedang);
+}
+
+.kartu-ringkasan-materi h3 {
+    font-family: var(--font-pixel-ui);
+    font-size: 15px;
+    color: var(--ui-kayu-gelap);
+    margin-bottom: 6px;
+}
+
+/* Detail Kemampuan (detail.html) */
+.daftar-detail-pilar {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.kartu-detail-kemampuan {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 76px 1fr 200px;
+    gap: 18px;
+    align-items: center;
+}
+
+.lencana-level-kemampuan {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    padding: 3px 10px;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 13px;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.level-mahir { background-color: var(--warna-hijau-alami); color: #ffffff; }
+.level-cakap { background-color: var(--warna-biru-langit); color: #ffffff; }
+.level-berkembang { background-color: var(--warna-emas-hangat); color: var(--ui-teks-gelap); }
+
+.deskripsi-capaian-detail {
+    font-size: 15px;
+    color: var(--ui-teks-sedang);
+    margin-top: 8px;
+}
+
+.kotak-nilai-detail {
+    background-color: var(--ui-kayu-panel);
+    border: 3px solid var(--ui-garis-pixel);
+    padding: 12px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.nilai-besar-detail {
+    font-family: var(--font-pixel-judul);
+    font-size: 26px;
+    color: var(--warna-emas-hangat);
+}
+
+@media (max-width: 900px) {
+    .grid-skor-pilar,
+    .grid-ringkasan-materi,
+    .baris-metrik-ringkas {
+        grid-template-columns: 1fr;
+    }
+    .kartu-detail-kemampuan {
+        grid-template-columns: 1fr;
+        text-align: center;
+        justify-items: center;
+    }
+}

@@ -1,0 +1,314 @@
+/**
+ * File: js/sequential-data.js
+ * Deskripsi: Menyediakan data cadangan lokal 20 variasi kegiatan Algoritma Sequential
+ * (identik dengan data/sequential.json) agar game berjalan mulus baik via HTTP maupun file://.
+ */
+
+const DATA_CADANGAN_SEQUENTIAL = [
+    {
+        id: "seq-01",
+        judul: "Bangun Tidur di Pagi Hari",
+        kategori: "Rutinitas Pagi",
+        gambar: "assets/images/stage-1-sequential/activities/bangun-tidur.png",
+        deskripsi: "Urutkan langkah-langkah bangun tidur hingga siap memulai aktivitas pagi.",
+        langkah: [
+            "Mematikan bunyi alarm di meja samping tempat tidur.",
+            "Duduk sejenak di tepi kasur agar kesadaran pulih sepenuhnya.",
+            "Berdiri lalu merapikan bantal dan melipat selimut di tempat tidur.",
+            "Membuka tirai jendela agar cahaya dan udara pagi masuk kamar.",
+            "Minum segelas air putih untuk menyegarkan tubuh."
+        ],
+        penjelasan: "Alarm dimatikan terlebih dahulu, lalu duduk memulihkan kesadaran sebelum berdiri merapikan tempat tidur, membuka tirai, dan minum air."
+    },
+    {
+        id: "seq-02",
+        judul: "Menggosok Gigi",
+        kategori: "Kebersihan Diri",
+        gambar: "assets/images/stage-1-sequential/activities/gosok-gigi.png",
+        deskripsi: "Susun urutan menggosok gigi yang benar agar gigi bersih dan sehat.",
+        langkah: [
+            "Mengambil sikat gigi bersih dan membilas bulunya dengan air.",
+            "Mengoleskan pasta gigi secukupnya ke ujung bulu sikat.",
+            "Menyikat seluruh permukaan gigi depan, belakang, dan geraham.",
+            "Berkumur dengan air bersih hingga seluruh busa pasta gigi hilang.",
+            "Mencuci bersih sikat gigi lalu menaruhnya kembali di tempat kering."
+        ],
+        penjelasan: "Pasta gigi baru dioleskan setelah sikat diambil, diikuti menyikat gigi, berkumur agar busa hilang, lalu membilas dan menyimpan sikat."
+    },
+    {
+        id: "seq-03",
+        judul: "Mencuci Tangan dengan Sabun",
+        kategori: "Kebersihan Diri",
+        gambar: "assets/images/stage-1-sequential/activities/cuci-tangan.png",
+        deskripsi: "Urutkan prosedur mencuci tangan yang higienis dari awal sampai kering.",
+        langkah: [
+            "Membuka keran air untuk membasahi kedua telapak tangan.",
+            "Mengambil sabun lalu menggosok telapak tangan hingga berbusa.",
+            "Membersihkan punggung tangan, sela jari, dan ujung kuku secara merata.",
+            "Membilas seluruh busa sabun di bawah air mengalir sampai bersih.",
+            "Menutup keran air lalu mengeringkan tangan memakai handuk atau tisu."
+        ],
+        penjelasan: "Tangan dibasahi dulu sebelum memakai sabun, digosok merata, dibilas air mengalir, baru keran ditutup dan tangan dikeringkan."
+    },
+    {
+        id: "seq-04",
+        judul: "Mandi Pagi",
+        kategori: "Kebersihan Diri",
+        gambar: "assets/images/stage-1-sequential/activities/mandi.png",
+        deskripsi: "Susun urutan mandi yang logis dari persiapan hingga selesai.",
+        langkah: [
+            "Menyiapkan handuk bersih dan pakaian ganti di tempat yang kering.",
+            "Membasahi seluruh tubuh dari kepala hingga kaki dengan air bersih.",
+            "Mengusapkan sabun ke tubuh dan sampo ke rambut hingga berbusa.",
+            "Membilas badan dan rambut sampai seluruh busa benar-benar bersih.",
+            "Mengeringkan badan dengan handuk sebelum mengenakan pakaian ganti."
+        ],
+        penjelasan: "Persiapan handuk dilakukan sebelum masuk air, diikuti membasahi badan, memakai sabun/sampo, membilas, dan mengeringkan tubuh."
+    },
+    {
+        id: "seq-05",
+        judul: "Memakai Seragam Sekolah",
+        kategori: "Persiapan Sekolah",
+        gambar: "assets/images/stage-1-sequential/activities/seragam-sekolah.png",
+        deskripsi: "Urutkan langkah memakai seragam SMK secara rapi dan teratur.",
+        langkah: [
+            "Menyiapkan setelan seragam bersih dan memastikan kondisinya rapi.",
+            "Mengenakan kemeja seragam lalu mengancingkannya dari atas ke bawah.",
+            "Memakai celana atau rok seragam dan memasukkan ujung kemeja ke dalamnya.",
+            "Memasang ikat pinggang serta dasi sekolah sesuai ketentuan.",
+            "Memakai kaus kaki dan sepatu sekolah yang bersih."
+        ],
+        penjelasan: "Kemeja dipakai dan dikancingkan lebih dulu sebelum dimasukkan ke celana/rok, diikuti aksesori ikat pinggang/dasi, lalu sepatu."
+    },
+    {
+        id: "seq-06",
+        judul: "Menyiapkan Tas Sekolah",
+        kategori: "Persiapan Sekolah",
+        gambar: "assets/images/stage-1-sequential/activities/tas-sekolah.png",
+        deskripsi: "Susun langkah menyiapkan tas sekolah agar perlengkapan esok tidak tertinggal.",
+        langkah: [
+            "Melihat jadwal pelajaran hari esok untuk menentukan buku yang dibawa.",
+            "Mengeluarkan buku atau berkas hari sebelumnya yang tidak diperlukan lagi.",
+            "Memasukkan buku paket dan buku tulis sesuai jadwal pelajaran esok.",
+            "Menyimpan kotak alat tulis dan perlengkapan praktik ke saku tas.",
+            "Menutup ritsleting tas lalu menaruhnya di dekat meja belajar."
+        ],
+        penjelasan: "Jadwal diperiksa lebih dulu, tas dikosongkan dari barang tak perlu, diisi buku & alat tulis sesuai jadwal, lalu ditutup rapi."
+    },
+    {
+        id: "seq-07",
+        judul: "Membuat Mi Instan",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/mi-instan.png",
+        deskripsi: "Urutkan proses memasak mi instan rebus hingga siap disantap.",
+        langkah: [
+            "Mengisi panci dengan air secukupnya lalu menyalakan kompor untuk merebus air.",
+            "Menunggu hingga air di dalam panci mendidih sempurna.",
+            "Memasukkan mi ke dalam air mendidih dan memasaknya hingga matang.",
+            "Menuangkan bumbu mi instan ke dalam mangkuk saji.",
+            "Mengangkat mi yang sudah matang dari panci lalu memindahkannya ke mangkuk.",
+            "Mengaduk mi dengan bumbu di mangkuk hingga tercampur rata."
+        ],
+        penjelasan: "Air direbus hingga mendidih dulu sebelum mi dimasukkan, bumbu disiapkan di mangkuk, baru mi matang diangkat dan diaduk bersama bumbu."
+    },
+    {
+        id: "seq-08",
+        judul: "Membuat Teh Manis Hangat",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/teh-manis.png",
+        deskripsi: "Susun urutan menyeduh teh manis hangat yang benar.",
+        langkah: [
+            "Menyiapkan cangkir atau gelas bersih di atas meja dapur.",
+            "Memasukkan satu kantung teh celup dan gula pasir ke dalam cangkir.",
+            "Menuangkan air panas dari termos atau ketel ke dalam cangkir.",
+            "Mengaduk teh dengan sendok hingga gula larut dan warna teh pekat.",
+            "Mengangkat kantung teh celup sebelum teh manis dinikmati."
+        ],
+        penjelasan: "Cangkir diisi teh celup dan gula lebih dulu, disiram air panas, diaduk hingga larut, lalu kantung teh diangkat sebelum diminum."
+    },
+    {
+        id: "seq-09",
+        judul: "Membuat Kopi",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/kopi.png",
+        deskripsi: "Urutkan langkah menyeduh secangkir kopi hangat secara tepat.",
+        langkah: [
+            "Merebus air bersih di dalam ketel hingga mendidih.",
+            "Memasukkan bubuk kopi dan gula secukupnya ke dalam cangkir bersih.",
+            "Menuangkan air mendidih dari ketel secara perlahan ke cangkir.",
+            "Mengaduk kopi memakai sendok agar bubuk kopi dan gula larut rata.",
+            "Mendiamkan kopi sejenak agar ampas turun mengendap sebelum diminum."
+        ],
+        penjelasan: "Air direbus dulu, kopi dan gula disiapkan di cangkir, diseduh air panas, diaduk rata, lalu didiamkan sejenak agar ampas mengendap."
+    },
+    {
+        id: "seq-10",
+        judul: "Memasak Nasi Menggunakan Rice Cooker",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/rice-cooker.png",
+        deskripsi: "Urutkan prosedur memasak nasi menggunakan rice cooker dengan aman.",
+        langkah: [
+            "Menakar beras memakai gelas takar lalu memasukkannya ke panci rice cooker.",
+            "Mencuci beras dengan air bersih lalu membuang air cuciannya.",
+            "Menambahkan air bersih sesuai batas takaran yang dianjurkan.",
+            "Mengeringkan bagian luar panci lalu memasukkannya ke badan rice cooker.",
+            "Menutup rapat penutup rice cooker dan menancapkan kabel ke stopkontak.",
+            "Menekan tombol Cook lalu menunggu lampu indikator berpindah ke Warm."
+        ],
+        penjelasan: "Beras ditakar dan dicuci dulu, diberi air pas, bagian luar panci dikeringkan demi keamanan listrik, baru dicolok dan ditekan Cook."
+    },
+    {
+        id: "seq-11",
+        judul: "Menggoreng Telur",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/goreng-telur.png",
+        deskripsi: "Susun langkah menggoreng telur mata sapi agar matang merata.",
+        langkah: [
+            "Meletakkan wajan di atas kompor dan menuangkan sedikit minyak goreng.",
+            "Menyalakan kompor dengan api sedang lalu menunggu minyak menjadi hangat.",
+            "Memecahkan kulit telur dengan hati-hati di atas wajan berisi minyak hangat.",
+            "Menaburkan sedikit garam di atas telur yang sedang digoreng.",
+            "Memasak telur hingga putihnya mengeras dan tingkat kematangan sesuai selera.",
+            "Mematikan api kompor lalu mengangkat telur ke piring dengan spatula."
+        ],
+        penjelasan: "Wajan dan minyak dipanaskan terlebih dahulu sebelum telur dipecahkan, dibumbui garam, dimasak matang, lalu kompor dimatikan dan telur diangkat."
+    },
+    {
+        id: "seq-12",
+        judul: "Membuat Roti Isi (Sandwich)",
+        kategori: "Dapur & Masak",
+        gambar: "assets/images/stage-1-sequential/activities/roti-isi.png",
+        deskripsi: "Urutkan langkah merangkai roti isi yang lezat dan rapi.",
+        langkah: [
+            "Menyiapkan dua lembar roti tawar, selada, tomat, keju, dan telur matang.",
+            "Mengoleskan mentega atau saus pada permukaan dalam kedua lembar roti.",
+            "Menyusun selada, irisan tomat, keju, dan telur di atas lembar roti pertama.",
+            "Menutup susunan isian dengan lembar roti kedua di bagian atas.",
+            "Memotong roti isi menjadi dua bagian di atas talenan sebelum disajikan."
+        ],
+        penjelasan: "Bahan disiapkan dulu, roti dioles, isian disusun di antara dua lembar roti, ditutup, baru dipotong agar rapi."
+    },
+    {
+        id: "seq-13",
+        judul: "Mencuci Piring",
+        kategori: "Pekerjaan Rumah",
+        gambar: "assets/images/stage-1-sequential/activities/cuci-piring.png",
+        deskripsi: "Susun langkah mencuci piring yang bersih dan hemat air.",
+        langkah: [
+            "Membuang sisa makanan yang masih menempel di piring ke tempat sampah.",
+            "Menyiapkan spons yang telah diberi sabun cuci piring hingga berbusa.",
+            "Menggosok seluruh permukaan depan dan belakang piring dengan spons berbusa.",
+            "Membilas piring di bawah air mengalir sampai busa dan licin sabun hilang.",
+            "Menata piring yang sudah bersih di rak peniris hingga kering.",
+            "Membersihkan bak cuci dan memeras spons setelah seluruh piring selesai."
+        ],
+        penjelasan: "Sisa makanan dibuang agar saluran air tidak mampat, lalu piring digosok sabun, dibilas, ditiriskan, dan bak cuci dibersihkan."
+    },
+    {
+        id: "seq-14",
+        judul: "Mencuci Pakaian Secara Manual",
+        kategori: "Pekerjaan Rumah",
+        gambar: "assets/images/stage-1-sequential/activities/cuci-pakaian.png",
+        deskripsi: "Urutkan proses mencuci pakaian dari pemilahan hingga penjemuran.",
+        langkah: [
+            "Memisahkan pakaian putih dari pakaian berwarna agar tidak kelunturan.",
+            "Merendam pakaian dalam ember berisi air dan larutan deterjen.",
+            "Mengucek bagian pakaian yang kotor terutama kerah dan lengan.",
+            "Membilas pakaian dengan air bersih berulang kali hingga bebas busa.",
+            "Memeras pakaian secukupnya agar kandungan air berkurang.",
+            "Menjemur pakaian dengan gantungan baju di tempat terkena sinar matahari."
+        ],
+        penjelasan: "Pemisahan warna mencegah luntur, lalu pakaian direndam, dikucek, dibilas bersih, diperas, dan dijemur."
+    },
+    {
+        id: "seq-15",
+        judul: "Menyapu Lantai Ruangan",
+        kategori: "Pekerjaan Rumah",
+        gambar: "assets/images/stage-1-sequential/activities/sapu-lantai.png",
+        deskripsi: "Urutkan cara menyapu lantai ruangan agar debu terkumpul bersih.",
+        langkah: [
+            "Menggeser barang atau kursi kecil yang menghalangi area lantai.",
+            "Menyapu lantai mulai dari sudut ruangan terjauh menuju arah pintu.",
+            "Mengumpulkan semua debu dan kotoran menjadi satu tumpukan.",
+            "Menyerok tumpukan sampah menggunakan pengki hingga lantai bersih.",
+            "Membuang kotoran dari pengki ke tempat sampah lalu menyimpan sapu."
+        ],
+        penjelasan: "Barang penghalang disingkirkan dulu, menyapu dari sudut terjauh ke satu titik tumpukan, diserok ke pengki, lalu dibuang."
+    },
+    {
+        id: "seq-16",
+        judul: "Mengepel Lantai",
+        kategori: "Pekerjaan Rumah",
+        gambar: "assets/images/stage-1-sequential/activities/pel-lantai.png",
+        deskripsi: "Susun urutan mengepel lantai supaya mengkilap dan tidak becek.",
+        langkah: [
+            "Menyapu lantai terlebih dahulu agar kotoran dan debu kasar terangkat.",
+            "Mengisi ember dengan air bersih lalu mencampurkan cairan pembersih lantai.",
+            "Mencelupkan kain pel ke ember dan memerasnya hingga cukup lembap.",
+            "Menggosok lantai secara bertahap dari bagian dalam mundur ke arah pintu.",
+            "Membuang air kotor, membilas kain pel, lalu menunggu lantai kering."
+        ],
+        penjelasan: "Lantai harus disapu dulu sebelum dipel dengan cairan pembersih, kain pel diperas agar tidak becek, dipel mundur agar tak terinjak, lalu dibereskan."
+    },
+    {
+        id: "seq-17",
+        judul: "Menyiram Tanaman di Pot",
+        kategori: "Merawat Lingkungan",
+        gambar: "assets/images/stage-1-sequential/activities/siram-tanaman.png",
+        deskripsi: "Urutkan langkah menyiram tanaman hias yang tepat.",
+        langkah: [
+            "Memeriksa kelembapan tanah di pot untuk memastikan tanaman perlu disiram.",
+            "Mengisi gembor atau gayung dengan air bersih secukupnya.",
+            "Menyiramkan air perlahan ke media tanah di sekitar pangkal akar.",
+            "Mengembalikan gembor ke tempat penyimpanan setelah tanaman selesai disiram."
+        ],
+        penjelasan: "Kondisi tanah dicek dulu agar tanaman tidak kelebihan air, lalu air disiapkan, disiram ke area akar, dan alat dirapikan."
+    },
+    {
+        id: "seq-18",
+        judul: "Mengisi Daya Ponsel dengan Aman",
+        kategori: "Teknologi Harian",
+        gambar: "assets/images/stage-1-sequential/activities/cas-ponsel.png",
+        deskripsi: "Urutkan prosedur mengisi daya baterai ponsel yang aman bagi perangkat.",
+        langkah: [
+            "Memeriksa kondisi kabel dan kepala charger agar bebas dari kerusakan.",
+            "Menancapkan ujung kabel USB ke kepala adaptor charger hingga rapat.",
+            "Menghubungkan kepala adaptor charger ke stopkontak listrik.",
+            "Memasukkan konektor kabel pengisi daya ke port pada ponsel.",
+            "Memastikan indikator pengisian daya muncul di layar lalu meletakkan ponsel."
+        ],
+        penjelasan: "Periksa kelayakan kabel, rakit kabel ke adaptor, colok ke sumber listrik sebelum menyambungkan ke ponsel, lalu verifikasi indikator pengisian."
+    },
+    {
+        id: "seq-19",
+        judul: "Mengirim Tugas melalui Platform Belajar",
+        kategori: "Aktivitas Siswa SMK",
+        gambar: "assets/images/stage-1-sequential/activities/kirim-tugas.png",
+        deskripsi: "Susun urutan mengumpulkan tugas sekolah secara daring hingga terkirim.",
+        langkah: [
+            "Membuka aplikasi atau web platform pembelajaran lalu login dengan akun siswa.",
+            "Memilih mata pelajaran dan tugas yang akan dikumpulkan.",
+            "Memeriksa kembali format dan nama file tugas sesuai ketentuan guru.",
+            "Mengklik tombol Tambah atau Unggah lalu memilih file tugas dari folder.",
+            "Menunggu proses unggahan selesai hingga nama file muncul di daftar.",
+            "Menekan tombol Serahkan atau Kirim dan memastikan statusnya Terkirim."
+        ],
+        penjelasan: "Masuk akun dulu, buka tugasnya, pastikan file sesuai aturan, unggah hingga selesai, baru tekan Serahkan agar tercatat oleh guru."
+    },
+    {
+        id: "seq-20",
+        judul: "Menyalakan dan Menggunakan Komputer",
+        kategori: "Aktivitas Siswa SMK",
+        gambar: "assets/images/stage-1-sequential/activities/nyalakan-komputer.png",
+        deskripsi: "Urutkan langkah menyalakan, memakai, hingga mematikan komputer dengan benar.",
+        langkah: [
+            "Memastikan kabel daya monitor dan CPU tersambung aman ke stopkontak.",
+            "Menekan tombol Power pada CPU serta tombol daya pada monitor.",
+            "Menunggu proses booting sistem operasi hingga layar login atau desktop muncul.",
+            "Membuka aplikasi belajar atau pengolah dokumen yang dibutuhkan.",
+            "Menyimpan seluruh hasil pekerjaan ke dalam folder penyimpanan.",
+            "Memilih menu Shut Down agar komputer mati secara aman."
+        ],
+        penjelasan: "Aliran listrik dicek dulu, baru tombol Power ditekan, tunggu booting selesai, gunakan aplikasi, simpan pekerjaan, lalu lakukan Shut Down."
+    }
+];

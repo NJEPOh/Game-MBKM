@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Hasil Pembelajaran</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/hasil.css">
+</head>
+<body class="latar-hasil" data-bgm="music-background-9.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Hasil Akhir</span>
+            <span class="info-pemain-header">Rekap Pembelajaran Computational Thinking</span>
+        </div>
+        <div class="aksi-header">
+            <button
+                type="button"
+                class="tombol tombol-krem tombol-kecil"
+                data-sfx-hover
+                data-sfx-click
+                onclick="pindahHalaman('stages.html', true)"
+            >
+                Pilih Stage
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-hasil">
+            <h1 id="judul-hasil" class="judul-halaman">Hasil Belajar</h1>
+            <p class="subjudul-halaman">
+                Rekapitulasi skor, ketepatan, waktu penyelesaian, dan materi yang telah dipelajari dari ketiga stage.
+            </p>
+
+            <div class="spanduk-pencapaian">
+                <div class="spanduk-kiri">
+                    <div class="spanduk-ikon-wrap">
+                        <img src="assets/images/common/ui/icon-trophy.png" alt="Piala pencapaian" width="84" height="84">
+                        <img src="assets/images/common/mascot.png" alt="Maskot Misi Logika" width="84" height="84">
+                    </div>
+
+                    <div class="info-utama-hasil">
+                        <div class="label-penjelajah-hasil">Siswa SMK</div>
+                        <div id="nama-pemain-hasil" class="nama-pemain-besar">Siswa SMK</div>
+                        <div class="baris-lencana-hasil">
+                            <span id="predikat-pencapaian" class="predikat-pencapaian">Pembelajar Logika</span>
+                            <span id="mode-pencapaian" class="lencana-mode mode-normal">Mode: Normal</span>
+                        </div>
+                        <p id="ringkasan-pencapaian" class="ringkasan-teks-pencapaian"></p>
+                    </div>
+                </div>
+
+                <div class="kotak-total-skor">
+                    <div class="label-total-skor">Total Skor Akhir</div>
+                    <div id="nilai-persentase-total" class="angka-total-skor">0%</div>
+                    <div id="nilai-poin-total" class="sub-total-poin">0 / 300 Poin</div>
+                </div>
+            </div>
+
+            <!-- Metrik Ringkas: Benar, Salah, Waktu Total -->
+            <div class="baris-metrik-ringkas">
+                <div class="kartu-metrik">
+                    <div class="label-metrik">Total Jawaban Benar</div>
+                    <div id="total-benar-hasil" class="nilai-metrik">0</div>
+                </div>
+                <div class="kartu-metrik">
+                    <div class="label-metrik">Total Percobaan Salah</div>
+                    <div id="total-salah-hasil" class="nilai-metrik">0</div>
+                </div>
+                <div class="kartu-metrik">
+                    <div class="label-metrik">Total Waktu Bermain</div>
+                    <div id="total-waktu-hasil" class="nilai-metrik">0 dtk</div>
+                </div>
+            </div>
+
+            <!-- Kartu Rekap 3 Stage -->
+            <div class="grid-skor-pilar">
+                <!-- Stage 1: Sequential -->
+                <article class="kartu-skor-pilar">
+                    <div class="kepala-kartu-skor">
+                        <img src="assets/images/common/ui/icon-sequential.png" alt="Stage 1 Sequential" width="54" height="54">
+                        <div>
+                            <h2 class="judul-pilar-skor">Stage 1: Sequential</h2>
+                            <div class="wilayah-pilar-skor">Urutan Langkah Harian</div>
+                        </div>
+                    </div>
+                    <div class="batang-progres-luar">
+                        <div id="batang-sequential" class="batang-progres-dalam" style="width: 0%;"></div>
+                    </div>
+                    <div id="skor-sequential" class="angka-skor-pilar">0 / 100 Poin</div>
+                    <div id="stat-sequential" class="stat-tambahan-stage">Gerbang: 0/3 | Koin: 0/15 | Sisa HP: - | Waktu: 0 dtk</div>
+                </article>
+
+                <!-- Stage 2: Bubble Sort -->
+                <article class="kartu-skor-pilar">
+                    <div class="kepala-kartu-skor">
+                        <img src="assets/images/common/ui/icon-bubblesort.png" alt="Stage 2 Bubble Sort" width="54" height="54">
+                        <div>
+                            <h2 class="judul-pilar-skor">Stage 2: Bubble Sort</h2>
+                            <div class="wilayah-pilar-skor">Pengurutan Data</div>
+                        </div>
+                    </div>
+                    <div class="batang-progres-luar">
+                        <div id="batang-bubblesort" class="batang-progres-dalam" style="width: 0%;"></div>
+                    </div>
+                    <div id="skor-bubblesort" class="angka-skor-pilar">0 / 100 Poin</div>
+                    <div id="stat-bubblesort" class="stat-tambahan-stage">Gerbang: 0/3 | Koin: 0/15 | Banding/Tukar: 0/0 | Waktu: 0 dtk</div>
+                </article>
+
+                <!-- Stage 3: DOS -->
+                <article class="kartu-skor-pilar">
+                    <div class="kepala-kartu-skor">
+                        <img src="assets/images/common/ui/icon-dos.png" alt="Stage 3 DOS" width="54" height="54">
+                        <div>
+                            <h2 class="judul-pilar-skor">Stage 3: DOS</h2>
+                            <div class="wilayah-pilar-skor">Dasar Command Line</div>
+                        </div>
+                    </div>
+                    <div class="batang-progres-luar">
+                        <div id="batang-dos" class="batang-progres-dalam" style="width: 0%;"></div>
+                    </div>
+                    <div id="skor-dos" class="angka-skor-pilar">0 / 100 Poin</div>
+                    <div id="stat-dos" class="stat-tambahan-stage">Gerbang: 0/3 | Koin: 0/15 | Ketepatan DOS: 0% | Waktu: 0 dtk</div>
+                </article>
+            </div>
+
+            <!-- Ringkasan Materi yang Telah Dipelajari -->
+            <div class="panel-ringkasan-materi">
+                <h2 class="judul-panel-sub" style="font-size: 19px;">Ringkasan Materi yang Sudah Dipelajari</h2>
+                <div class="grid-ringkasan-materi">
+                    <div class="kartu-ringkasan-materi">
+                        <h3>1. Algoritma Sequential</h3>
+                        <p>
+                            Instruksi dijalankan secara berurutan dari langkah awal hingga selesai. Memahami ketergantungan antar langkah menjamin prosedur berjalan tepat tanpa lompatan logika.
+                        </p>
+                    </div>
+                    <div class="kartu-ringkasan-materi">
+                        <h3>2. Algoritma Bubble Sort</h3>
+                        <p>
+                            Pengurutan dilakukan dengan membandingkan dua elemen bersebelahan dan menukarnya bila urutannya belum sesuai, diulang tiap <em>Pass</em> hingga semua data terurut.
+                        </p>
+                    </div>
+                    <div class="kartu-ringkasan-materi">
+                        <h3>3. DOS Command Line</h3>
+                        <p>
+                            Pengelolaan direktori dan file berbasis teks menggunakan perintah <code>MD</code>, <code>DIR</code>, <code>CD</code>, <code>CD..</code>, <code>COPY CON</code> (+ <code>Ctrl+Z</code>), <code>COPY</code>, <code>REN</code>, <code>DEL</code>, dan <code>RD</code>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="baris-tombol">
+                <button type="button" id="tombol-lihat-detail" class="tombol tombol-sekunder" data-sfx-hover data-sfx-click>
+                    Lihat Detail Kemampuan
+                </button>
+                <button type="button" class="tombol tombol-krem" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                    Kembali ke Menu Stage
+                </button>
+                <button type="button" id="tombol-main-lagi" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                    Bermain Kembali (Mulai Baru)
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/hasil.js"></script>
+</body>
+</html>

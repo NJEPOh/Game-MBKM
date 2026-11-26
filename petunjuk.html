@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Panduan Bermain</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="latar-stages" data-bgm="music-background-2.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Panduan Game</span>
+            <span class="info-pemain-header">Cara Bermain 3 Stage Pembelajaran</span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-petunjuk">
+            <h1 id="judul-petunjuk" class="judul-halaman">Panduan Permainan</h1>
+            <p class="subjudul-halaman">
+                Game ini melatih cara berpikir komputasional melalui praktik langsung di tiga stage berbeda.
+            </p>
+
+            <div class="kepala-petunjuk">
+                <img
+                    src="assets/images/common/characters/player-portrait.png"
+                    alt="Karakter Siswa SMK"
+                    width="72"
+                    height="96"
+                >
+                <div>
+                    <strong style="font-family: var(--font-pixel-ui); color: var(--ui-kayu-gelap);">Kontrol, HP, Checkpoint &amp; Gerbang Soal:</strong>
+                    <p>
+                        Gunakan <strong>A</strong> (Kiri), <strong>D</strong> (Kanan), dan <strong>W / Space</strong> (Melompat).
+                        Tingkat kesulitan menentukan HP (<strong>Easy: 7 HP</strong>, <strong>Normal: 5 HP</strong>, <strong>Hard: 3 HP</strong>).
+                        Setelah terkena bahaya fisik, karakter berkedip kebal selama <strong>1,5 detik</strong> (jawaban salah soal tetap mengurangi 1 HP).
+                        Aktifkan <strong>Checkpoint (CP)</strong> untuk memulihkan HP penuh serta menyimpan progres gerbang saat Game Over!
+                    </p>
+                </div>
+            </div>
+
+            <div class="grid-petunjuk">
+                <article class="kartu-petunjuk">
+                    <img src="assets/images/common/enemies/slime.png" alt="Monster & Rintangan" width="64" height="64">
+                    <h3>Monster &amp; Rintangan</h3>
+                    <p>
+                        Injak bagian atas kepala <strong>Slime / Jamur / Bot</strong> untuk mengalahkannya.
+                        Hindari sentuhan samping, monster terbang (Kelelawar / Bola Energi / Glitch), proyektil, duri, serta jurang!
+                    </p>
+                </article>
+
+                <article class="kartu-petunjuk">
+                    <img src="assets/images/common/interactive/gate_locked.png" alt="Gerbang Soal" width="48" height="96">
+                    <h3>3 Penghalang Soal</h3>
+                    <p>
+                        Mendekati gerbang soal menjeda dunia dan membuka tantangan materi (Sequential 20 aktivitas, Bubble Sort 8 variasi objek, atau Terminal Virtual DOS). Jawab benar untuk membuka gerbang!
+                    </p>
+                </article>
+
+                <article class="kartu-petunjuk">
+                    <img src="assets/images/common/interactive/finish_flag.png" alt="Finish Flag" width="144" height="60" style="width: 64px; height: 64px; object-fit: cover; object-position: left center;">
+                    <h3>Koin &amp; Garis Finish</h3>
+                    <p>
+                        Kumpulkan koin emas opsional untuk menambah skor akhir stage. Stage selesai hanya jika <strong>ketiga gerbang soal terbuka</strong> dan kamu menyentuh bendera Finish!
+                    </p>
+                </article>
+            </div>
+
+            <div class="baris-tombol">
+                <button type="button" id="tombol-petunjuk-kembali" class="tombol tombol-netral" data-sfx-hover data-sfx-click>
+                    Kembali ke Beranda
+                </button>
+                <button type="button" id="tombol-petunjuk-lanjut" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                    Pilih Stage
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Stage 3: DOS Command Line</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dos.css">
+    <link rel="stylesheet" href="css/platformer.css">
+</head>
+<body class="latar-dos" data-bgm="music-background-7.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Stage 3: DOS Tech Dungeon</span>
+            <span class="info-pemain-header">Siswa: <strong id="nama-pemain-dos">Siswa SMK</strong> <span id="badge-mode-dos" class="lencana-mode mode-normal">Normal</span></span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                Menu Stage
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-stage3">
+            <div class="kepala-judul-wilayah">
+                <img src="assets/images/common/ui/icon-dos.png" alt="Ikon Terminal DOS" width="52" height="52">
+                <h1 id="judul-stage3" class="judul-halaman" style="margin-bottom: 0;">Stage 3: DOS Command Line</h1>
+            </div>
+
+            <!-- FASE A: Halaman Materi 11 Perintah Wajib DOS -->
+            <div id="fase-materi-dos" class="panel-materi-briefing">
+                <h2 class="judul-panel-sub" style="text-align: center;">Dasar Penggunaan Command Line (DOS)</h2>
+                <p class="subjudul-halaman" style="margin-bottom: 12px;">
+                    Jelajahi <strong>DOS Tech Dungeon</strong>, hindari bot glitch dan proyektilnya, aktifkan <strong>CP 3</strong>, dan buka 3 gerbang digital menggunakan Terminal Virtual DOS!
+                </p>
+
+                <table class="tabel-referensi-dos" aria-label="Daftar 11 materi perintah DOS">
+                    <thead>
+                        <tr><th>No.</th><th>Materi Pengelolaan</th><th>Perintah DOS</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>1</td><td>Membuat direktori baru</td><td><code>MD nama</code> atau <code>MKDIR nama</code></td></tr>
+                        <tr><td>2</td><td>Melihat isi direktori</td><td><code>DIR</code></td></tr>
+                        <tr><td>3</td><td>Berpindah ke direktori</td><td><code>CD nama</code></td></tr>
+                        <tr><td>4</td><td>Kembali ke direktori induk</td><td><code>CD..</code></td></tr>
+                        <tr><td>5–7</td><td>Membuat, mengisi, &amp; menyimpan file</td><td><code>COPY CON file.txt</code> &rarr; ketik teks &rarr; <code>CTRL+Z</code> + <code>Enter</code></td></tr>
+                        <tr><td>8</td><td>Menyalin file</td><td><code>COPY sumber.txt tujuan.txt</code></td></tr>
+                        <tr><td>9</td><td>Mengubah nama file</td><td><code>REN lama.txt baru.txt</code></td></tr>
+                        <tr><td>10</td><td>Menghapus file</td><td><code>DEL nama.txt</code></td></tr>
+                        <tr><td>11</td><td>Menghapus direktori kosong</td><td><code>RD nama</code> atau <code>RMDIR nama</code></td></tr>
+                    </tbody>
+                </table>
+
+                <div class="baris-tombol" style="margin-top: 14px;">
+                    <button type="button" id="tombol-mulai-dos" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/common/ui/icon-play.png" alt="" width="22" height="22">
+                        Mulai Petualangan Stage 3
+                    </button>
+                    <button type="button" id="tombol-ulang-dos" class="tombol tombol-krem tersembunyi" data-sfx-hover data-sfx-click>
+                        Mulai Ulang dari Awal
+                    </button>
+                </div>
+            </div>
+
+            <!-- FASE B: Arena Platformer 2D Side-Scrolling -->
+            <div id="fase-game-dos" class="tersembunyi">
+                <div class="hud-platformer" aria-label="Status Pemain Stage 3">
+                    <div class="grup-hud-kiri">
+                        <div class="kotak-hud-item" title="Nyawa (HP)">
+                            <div id="hud-deret-hp" class="deret-hati-hp"></div>
+                            <span id="hud-teks-hp">5/5</span>
+                        </div>
+                        <div class="kotak-hud-item" title="Koin Opsional">
+                            <img src="assets/images/common/ui/coin-hud.png" alt="Koin" width="20" height="20">
+                            <span id="hud-teks-koin">0/15</span>
+                        </div>
+                        <div class="kotak-hud-item" title="3 Gerbang Terminal">
+                            <span>Gerbang:</span>
+                            <div id="hud-deret-gerbang" class="deret-gerbang-hud"></div>
+                            <span id="hud-teks-gerbang">0/3</span>
+                        </div>
+                    </div>
+
+                    <div class="grup-hud-kanan">
+                        <div class="kotak-hud-item">CP 3: <span id="hud-teks-cp">Belum</span></div>
+                        <div class="kotak-hud-item">
+                            <img src="assets/images/common/ui/icon-clock.png" alt="" width="18" height="18">
+                            <span id="hud-teks-waktu">0 dtk</span>
+                        </div>
+                        <div class="kotak-hud-item">Skor: <span id="hud-teks-skor">0</span></div>
+                        <button type="button" id="tombol-pause-platformer" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click>
+                            Jeda / Materi
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panggung-canvas-wrapper">
+                    <canvas id="platformer-canvas" width="640" height="360" aria-label="Arena Platformer Stage 3 DOS Tech Dungeon"></canvas>
+                    <div id="toast-canvas-platformer" class="toast-canvas-platformer tersembunyi" role="status"></div>
+                </div>
+
+                <div class="bar-kontrol-platformer">
+                    <div class="petunjuk-tombol-keyboard">
+                        Kontrol: <kbd>A</kbd> Kiri &bull; <kbd>D</kbd> Kanan &bull; <kbd>W</kbd> / <kbd>Space</kbd> Lompat &bull; Injak Bot Roda, hindari Glitch &amp; proyektil!
+                    </div>
+                    <div class="pad-kontrol-sentuh">
+                        <button type="button" id="btn-sentuh-kiri" class="tombol-gerak-sentuh" aria-label="Gerak Kiri">
+                            <img src="assets/images/common/ui/btn-left.png" alt="Kiri">
+                        </button>
+                        <button type="button" id="btn-sentuh-kanan" class="tombol-gerak-sentuh" aria-label="Gerak Kanan">
+                            <img src="assets/images/common/ui/btn-right.png" alt="Kanan">
+                        </button>
+                        <button type="button" id="btn-sentuh-lompat" class="tombol-gerak-sentuh" aria-label="Lompat">
+                            <img src="assets/images/common/ui/btn-jump.png" alt="Lompat">
+                            Lompat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL PENGHALANG TERMINAL DOS -->
+    <div id="modal-soal-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-gerbang-dos">
+        <div class="kotak-modal-soal-platformer">
+            <div class="header-modal-gerbang">
+                <div>
+                    <span id="lencana-gerbang-dos" class="badge-materi-dos">Gerbang Terminal 1 / 3</span>
+                    <h2 id="judul-gerbang-dos" class="judul-panel-sub" style="margin: 4px 0 0;">Buka Gerbang Terminal DOS</h2>
+                </div>
+                <span id="badge-hp-modal-gerbang" class="badge-gerbang-hp">HP: 5 / 5</span>
+            </div>
+
+            <div class="kotak-misi-dos">
+                <div>
+                    <span id="badge-materi-dos" class="badge-materi-dos">Langkah 1 / 3</span>
+                    <h3 id="judul-misi-dos" class="judul-panel-sub" style="margin-bottom: 4px; font-size: 18px;">Misi Terminal</h3>
+                    <p id="instruksi-misi-dos" style="font-size: 15px; font-weight: 700; color: var(--ui-teks-gelap);"></p>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <button type="button" id="tombol-bantuan-dos" class="tombol tombol-sekunder tombol-kecil" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/common/ui/icon-hint.png" alt="" width="18" height="18">
+                        Petunjuk
+                    </button>
+                    <button type="button" id="tombol-buka-gerbang-dos" class="tombol tombol-aksen tombol-kecil tersembunyi" data-sfx-hover data-sfx-click>
+                        Buka Gerbang &amp; Lanjutkan
+                    </button>
+                </div>
+            </div>
+
+            <p id="teks-petunjuk-inline-dos" class="kotak-pesan pesan-peringatan tersembunyi" style="margin-bottom: 10px;"></p>
+
+            <div id="pesan-umpan-balik-dos" class="kotak-pesan pesan-info" role="status">
+                Ketik perintah DOS pada terminal virtual di bawah. Perintah tidak valid mengurangi 1 HP!
+            </div>
+
+            <div class="layout-dos">
+                <div class="bingkai-terminal-dos">
+                    <div class="bar-judul-terminal">
+                        <span>Command Prompt Virtual — MS-DOS Simulation</span>
+                        <span>C:\SISWA</span>
+                    </div>
+                    <div id="layar-terminal-dos" class="layar-terminal-dos" aria-live="polite" style="height: 210px;"></div>
+                    <div class="baris-input-dos">
+                        <span id="prompt-dos" class="prompt-dos">C:\SISWA&gt;</span>
+                        <input
+                            type="text"
+                            id="input-perintah-dos"
+                            class="input-perintah-dos"
+                            placeholder="Ketik perintah DOS lalu Enter..."
+                            autocomplete="off"
+                            spellcheck="false"
+                            aria-label="Input perintah DOS"
+                        >
+                    </div>
+                    <div class="bar-kontrol-dos">
+                        <span style="font-family: var(--font-terminal); font-size: 12px; color: #a7d9b8;">
+                            Enter = Jalankan &bull; &uarr;/&darr; = Riwayat &bull; HELP = Bantuan
+                        </span>
+                        <div style="display: flex; gap: 8px;">
+                            <button type="button" id="tombol-ctrlz-dos" class="tombol tombol-aksen tombol-kecil tersembunyi" data-sfx-click>
+                                ^Z + Simpan (Ctrl+Z)
+                            </button>
+                            <button type="button" id="tombol-kirim-dos" class="tombol tombol-utama tombol-kecil" data-sfx-click>
+                                Jalankan (Enter)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="panel-vfs-dos">
+                    <div class="header-vfs-dos">
+                        <img src="assets/images/stage-3-dos/computers/retro-pc.png" alt="Komputer Retro" width="44" height="44">
+                        <div>
+                            <h3 class="judul-panel-sub" style="font-size: 16px; margin-bottom: 2px;">Direktori Virtual</h3>
+                            <span style="font-size: 13px; color: var(--ui-teks-sedang);">Pembaruan langsung</span>
+                        </div>
+                    </div>
+                    <div id="jalur-aktif-vfs" class="jalur-aktif-vfs">Lokasi Aktif: C:\SISWA</div>
+                    <div id="pohon-direktori-vfs" class="pohon-direktori-vfs" style="max-height: 170px; overflow-y: auto;"></div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pause -->
+    <div id="modal-pause-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-pause-dos">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Permainan Dijeda</span>
+            <h2 id="judul-pause-dos" class="judul-modal-pixel">Jeda — Stage 3 DOS Terminal</h2>
+            <p class="teks-modal-pixel">Buka kembali tabel referensi 11 perintah DOS jika butuh pengingat sintaks sebelum menghadapi gerbang terminal.</p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-lanjut-pause" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Lanjutkan</button>
+                <button type="button" id="tombol-buka-materi-dos" class="tombol tombol-krem" data-sfx-hover data-sfx-click>Referensi Perintah</button>
+                <button type="button" id="tombol-ulang-pause" class="tombol tombol-sekunder" data-sfx-hover data-sfx-click>Ulangi Stage</button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">Menu Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Game Over -->
+    <div id="modal-gameover-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-go-dos">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Game Over</span>
+            <h2 id="judul-go-dos" class="judul-modal-pixel">Nyawa Habis!</h2>
+            <p id="teks-gameover-platformer" class="teks-modal-pixel"></p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-respawn-platformer" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Respawn</button>
+                <button type="button" id="tombol-ulang-gameover" class="tombol tombol-netral" data-sfx-hover data-sfx-click>Reset Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kemenangan Akhir Stage 3 -->
+    <div id="modal-menang-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-menang-dos">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Semua Stage Tamat!</span>
+            <h2 id="judul-menang-dos" class="judul-modal-pixel">Stage 3: DOS Tech Dungeon Selesai!</h2>
+            <p class="teks-modal-pixel">Selamat! Kamu menaklukkan dunia DOS dan menguasai 11 perintah Command Line dasar!</p>
+            <div class="grid-stat-akhir-stage">
+                <div class="kartu-stat-stage"><span>Skor Stage</span><strong id="menang-skor-stage">0 / 100</strong></div>
+                <div class="kartu-stat-stage"><span>Koin</span><strong id="menang-koin-stage">0 / 15</strong></div>
+                <div class="kartu-stat-stage"><span>Sisa HP</span><strong id="menang-hp-stage">5 / 5</strong></div>
+                <div class="kartu-stat-stage"><span>Waktu</span><strong id="menang-waktu-stage">0 dtk</strong></div>
+            </div>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-ke-hasil" class="tombol tombol-utama" data-sfx-hover data-sfx-click onclick="pindahHalaman('hasil.html', true)">
+                    <img src="assets/images/common/ui/icon-trophy.png" alt="" width="22" height="22">
+                    Lihat Rekap Kemenangan Akhir
+                </button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                    Menu Stage
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/dos-vfs.js"></script>
+    <script src="js/platformer-assets.js"></script>
+    <script src="js/platformer-levels.js"></script>
+    <script src="js/platformer-engine.js"></script>
+    <script src="js/platformer-runner.js"></script>
+    <script src="js/dos-ui.js"></script>
+</body>
+</html>

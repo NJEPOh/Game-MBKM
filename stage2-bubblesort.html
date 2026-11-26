@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Stage 2: Algoritma Bubble Sort</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bubblesort.css">
+    <link rel="stylesheet" href="css/platformer.css">
+</head>
+<body class="latar-bubblesort" data-bgm="music-background-4.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Stage 2: Bubble Sort Valley</span>
+            <span class="info-pemain-header">Siswa: <strong id="nama-pemain-bs">Siswa SMK</strong> <span id="badge-mode-bs" class="lencana-mode mode-normal">Normal</span></span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                Menu Stage
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-stage2">
+            <div class="kepala-judul-wilayah">
+                <img src="assets/images/common/ui/icon-bubblesort.png" alt="Ikon Bubble Sort" width="52" height="52">
+                <h1 id="judul-stage2" class="judul-halaman" style="margin-bottom: 0;">Stage 2: Algoritma Bubble Sort</h1>
+            </div>
+
+            <!-- FASE A: Halaman Materi + Mode Pembelajaran Demo Interaktif -->
+            <div id="fase-materi-bs" class="panel-materi-briefing">
+                <h2 class="judul-panel-sub" style="text-align: center;">Memahami Cara Kerja Bubble Sort</h2>
+                <p class="subjudul-halaman" style="margin-bottom: 14px;">
+                    <strong>Bubble Sort</strong> membandingkan <strong>dua objek yang bersebelahan</strong>, menukarnya bila urutannya belum sesuai, lalu mengulangi setiap <em>Pass</em> hingga seluruh objek terurut.
+                </p>
+
+                <div class="panel-demo-bs">
+                    <h3 class="judul-panel-sub" style="font-size: 18px; text-align: center;">Mode Pembelajaran: Simulasi Langkah demi Langkah</h3>
+                    <div id="deret-demo-bs" class="deret-demo-bs"></div>
+                    <p id="statistik-demo-bs" style="text-align: center; font-family: var(--font-pixel-ui); font-size: 14px; font-weight: 700; color: var(--ui-kayu-gelap); margin-bottom: 8px;"></p>
+                    <p id="keterangan-demo-bs" class="kotak-pesan pesan-info" style="margin: 8px 0;"></p>
+                    <div class="baris-tombol" style="margin-top: 10px;">
+                        <button type="button" id="tombol-demo-langkah" class="tombol tombol-sekunder tombol-kecil" data-sfx-hover data-sfx-click>Langkah Berikutnya</button>
+                        <button type="button" id="tombol-demo-auto" class="tombol tombol-aksen tombol-kecil" data-sfx-hover data-sfx-click>Putar Otomatis</button>
+                        <button type="button" id="tombol-demo-reset" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click>Reset Demo</button>
+                    </div>
+                </div>
+
+                <div class="baris-tombol" style="margin-top: 14px;">
+                    <button type="button" id="tombol-mulai-bs" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/common/ui/icon-play.png" alt="" width="22" height="22">
+                        Mulai Petualangan Stage 2
+                    </button>
+                    <button type="button" id="tombol-ulang-bs" class="tombol tombol-krem tersembunyi" data-sfx-hover data-sfx-click>
+                        Mulai Ulang dari Awal
+                    </button>
+                </div>
+            </div>
+
+            <!-- FASE B: Arena Platformer 2D Side-Scrolling -->
+            <div id="fase-game-bs" class="tersembunyi">
+                <div class="hud-platformer" aria-label="Status Pemain Stage 2">
+                    <div class="grup-hud-kiri">
+                        <div class="kotak-hud-item" title="Nyawa (HP)">
+                            <div id="hud-deret-hp" class="deret-hati-hp"></div>
+                            <span id="hud-teks-hp">5/5</span>
+                        </div>
+                        <div class="kotak-hud-item" title="Koin Opsional">
+                            <img src="assets/images/common/ui/coin-hud.png" alt="Koin" width="20" height="20">
+                            <span id="hud-teks-koin">0/15</span>
+                        </div>
+                        <div class="kotak-hud-item" title="3 Gerbang Soal">
+                            <span>Gerbang:</span>
+                            <div id="hud-deret-gerbang" class="deret-gerbang-hud"></div>
+                            <span id="hud-teks-gerbang">0/3</span>
+                        </div>
+                    </div>
+
+                    <div class="grup-hud-kanan">
+                        <div class="kotak-hud-item">CP 2: <span id="hud-teks-cp">Belum</span></div>
+                        <div class="kotak-hud-item">
+                            <img src="assets/images/common/ui/icon-clock.png" alt="" width="18" height="18">
+                            <span id="hud-teks-waktu">0 dtk</span>
+                        </div>
+                        <div class="kotak-hud-item">Skor: <span id="hud-teks-skor">0</span></div>
+                        <button type="button" id="tombol-pause-platformer" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click>
+                            Jeda / Demo
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panggung-canvas-wrapper">
+                    <canvas id="platformer-canvas" width="640" height="360" aria-label="Arena Platformer Stage 2 Bubble Sort Valley"></canvas>
+                    <div id="toast-canvas-platformer" class="toast-canvas-platformer tersembunyi" role="status"></div>
+                </div>
+
+                <div class="bar-kontrol-platformer">
+                    <div class="petunjuk-tombol-keyboard">
+                        Kontrol: <kbd>A</kbd> Kiri &bull; <kbd>D</kbd> Kanan &bull; <kbd>W</kbd> / <kbd>Space</kbd> Lompat &bull; Injak Slime/Jamur, hindari Bola Energi &amp; Proyektil!
+                    </div>
+                    <div class="pad-kontrol-sentuh">
+                        <button type="button" id="btn-sentuh-kiri" class="tombol-gerak-sentuh" aria-label="Gerak Kiri">
+                            <img src="assets/images/common/ui/btn-left.png" alt="Kiri">
+                        </button>
+                        <button type="button" id="btn-sentuh-kanan" class="tombol-gerak-sentuh" aria-label="Gerak Kanan">
+                            <img src="assets/images/common/ui/btn-right.png" alt="Kanan">
+                        </button>
+                        <button type="button" id="btn-sentuh-lompat" class="tombol-gerak-sentuh" aria-label="Lompat">
+                            <img src="assets/images/common/ui/btn-jump.png" alt="Lompat">
+                            Lompat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL PENGHALANG SOAL BUBBLE SORT -->
+    <div id="modal-soal-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-gerbang-bs">
+        <div class="kotak-modal-soal-platformer">
+            <div class="header-modal-gerbang">
+                <div>
+                    <span id="lencana-gerbang-bs" class="badge-arah-sort">Gerbang Sort 1 / 3</span>
+                    <h2 id="judul-gerbang-bs" class="judul-panel-sub" style="margin: 6px 0 0;">Buka Gerbang Bubble Sort</h2>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <span id="badge-arah-bs" class="badge-arah-sort">Terkecil ke Terbesar</span>
+                    <span id="badge-hp-modal-gerbang" class="badge-gerbang-hp">HP: 5 / 5</span>
+                </div>
+            </div>
+
+            <div class="kotak-misi-bs">
+                <div>
+                    <h3 id="judul-tantangan-bs" class="judul-panel-sub" style="margin-bottom: 4px; font-size: 18px;">Memuat...</h3>
+                    <p id="deskripsi-tantangan-bs" style="font-size: 15px; color: var(--ui-teks-sedang);"></p>
+                </div>
+                <div style="font-family: var(--font-pixel-ui); font-size: 14px; font-weight: 700;">
+                    <span id="indikator-pass-bs">Pass 1</span> &bull; Banding: <span id="indikator-banding-bs">0</span> &bull; Tukar: <span id="indikator-tukar-bs">0</span>
+                </div>
+            </div>
+
+            <div id="baris-pass-bs" class="baris-pass-bs"></div>
+            <div id="pesan-umpan-balik-bs" class="kotak-pesan pesan-info" role="status">
+                Bandingkan dua objek yang disorot, lalu pilih Tukar Posisi atau Pertahankan Posisi! (Salah = -1 HP)
+            </div>
+
+            <div class="arena-objek-bs">
+                <div id="deret-kartu-bs" class="deret-kartu-bs" aria-live="polite"></div>
+            </div>
+
+            <div class="panel-keputusan-bs">
+                <p id="teks-perbandingan-aktif" class="teks-perbandingan-aktif"></p>
+                <div class="baris-aksi-bs">
+                    <button type="button" id="tombol-tukar-bs" class="tombol tombol-aksen tombol-aksi-bs" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/stage-2-bubble-sort/indicators/swap.png" alt="" width="24" height="24">
+                        Tukar Posisi (Swap)
+                    </button>
+                    <button type="button" id="tombol-pertahankan-bs" class="tombol tombol-utama tombol-aksi-bs" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/common/ui/icon-check.png" alt="" width="24" height="24">
+                        Pertahankan Posisi
+                    </button>
+                    <button type="button" id="tombol-buka-gerbang-bs" class="tombol tombol-sekunder tersembunyi" data-sfx-hover data-sfx-click>
+                        Buka Gerbang &amp; Lanjutkan
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pause -->
+    <div id="modal-pause-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-pause-bs">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Permainan Dijeda</span>
+            <h2 id="judul-pause-bs" class="judul-modal-pixel">Jeda — Stage 2 Bubble Sort</h2>
+            <p class="teks-modal-pixel">Gunakan mode Demo jika ingin meninjau ulang cara kerja perbandingan dan pertukaran Bubble Sort.</p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-lanjut-pause" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Lanjutkan</button>
+                <button type="button" id="tombol-buka-materi-bs" class="tombol tombol-krem" data-sfx-hover data-sfx-click>Mode Belajar (Demo)</button>
+                <button type="button" id="tombol-ulang-pause" class="tombol tombol-sekunder" data-sfx-hover data-sfx-click>Ulangi Stage</button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">Menu Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Game Over -->
+    <div id="modal-gameover-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-go-bs">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Game Over</span>
+            <h2 id="judul-go-bs" class="judul-modal-pixel">Nyawa Habis!</h2>
+            <p id="teks-gameover-platformer" class="teks-modal-pixel"></p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-respawn-platformer" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Respawn</button>
+                <button type="button" id="tombol-ulang-gameover" class="tombol tombol-netral" data-sfx-hover data-sfx-click>Reset Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kemenangan Stage 2 -->
+    <div id="modal-menang-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-menang-bs">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Stage Selesai!</span>
+            <h2 id="judul-menang-bs" class="judul-modal-pixel">Stage 2: Bubble Sort Valley Berhasil!</h2>
+            <p class="teks-modal-pixel">Seluruh 3 gerbang sorting terbuka dan garis finish tercapai!</p>
+            <div class="grid-stat-akhir-stage">
+                <div class="kartu-stat-stage"><span>Skor Stage</span><strong id="menang-skor-stage">0 / 100</strong></div>
+                <div class="kartu-stat-stage"><span>Koin</span><strong id="menang-koin-stage">0 / 15</strong></div>
+                <div class="kartu-stat-stage"><span>Sisa HP</span><strong id="menang-hp-stage">5 / 5</strong></div>
+                <div class="kartu-stat-stage"><span>Waktu</span><strong id="menang-waktu-stage">0 dtk</strong></div>
+            </div>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-ke-stage3" class="tombol tombol-utama" data-sfx-hover data-sfx-click onclick="pindahHalaman('stage3-dos.html', true)">
+                    Lanjut ke Stage 3: DOS Terminal
+                </button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                    Menu Stage
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/bubblesort-data.js"></script>
+    <script src="js/bubblesort-logic.js"></script>
+    <script src="js/platformer-assets.js"></script>
+    <script src="js/platformer-levels.js"></script>
+    <script src="js/platformer-engine.js"></script>
+    <script src="js/platformer-runner.js"></script>
+    <script src="js/bubblesort-ui.js"></script>
+</body>
+</html>

@@ -1,0 +1,652 @@
+/**
+ * File: css/style.css
+ * Deskripsi: Sistem Desain Cozy Pixel Art untuk "Misi Logika" (Siswa Kelas X SMK).
+ * Terinspirasi palet hangat Stardew Valley: hijau alami, krem hangat, cokelat kayu,
+ * biru langit, dan aksen pastel yang nyaman dibaca dengan pixel scaling tajam.
+ */
+
+/* Tipografi pixel art memakai fallback lokal yang rapi serta bebas blokir jaringan offline */
+
+:root {
+    /* Tipografi Pixel Art & Baca */
+    --font-pixel-judul: "Press Start 2P", "Silkscreen", monospace;
+    --font-pixel-ui: "Silkscreen", "Pixelify Sans", monospace;
+    --font-pixel-baca: "Pixelify Sans", "Trebuchet MS", "Segoe UI", sans-serif;
+    --font-terminal: "Consolas", "Courier New", "Lucida Console", monospace;
+
+    /* Skala Tipografi Nyaman untuk Desktop, Tablet, & HP */
+    --ukuran-judul-halaman: clamp(24px, 3vw, 36px);
+    --ukuran-nama-wilayah: clamp(20px, 2.3vw, 26px);
+    --ukuran-pertanyaan: clamp(19px, 2vw, 24px);
+    --ukuran-tombol: clamp(16px, 1.6vw, 19px);
+    --ukuran-instruksi: clamp(16px, 1.5vw, 18px);
+    --ukuran-dialog: clamp(16px, 1.5vw, 18px);
+    --ukuran-label: 15px;
+
+    /* Palet Cozy Pixel Art (Stardew-inspired: Kayu Hangat, Krem, Hijau Alami, Biru Langit) */
+    --ui-latar-dasar: #2a3b2e;
+    --ui-kayu-gelap: #422b1b;
+    --ui-kayu-panel: #593a24;
+    --ui-kayu-sedang: #754e32;
+    --ui-kayu-terang: #9b6a44;
+    --ui-krem-kartu: #fbf2dd;
+    --ui-krem-lembut: #f2e2c4;
+    --ui-krem-gelap: #e2caa3;
+    --ui-teks-gelap: #2b1d13;
+    --ui-teks-sedang: #4e3626;
+    --ui-teks-terang: #fffaf0;
+    --ui-teks-krem: #fdecc8;
+    --ui-garis-pixel: #2b1d13;
+
+    /* Aksen Warna Edukatif & Status */
+    --warna-hijau-alami: #4f8f44;
+    --warna-hijau-cerah: #6ab04c;
+    --warna-hijau-gelap: #2d5a2e;
+    --warna-hijau-pastel: #d9f0cd;
+    --warna-biru-langit: #539ec9;
+    --warna-biru-pastel: #dff1fa;
+    --warna-emas-hangat: #f4b942;
+    --warna-kuning-pastel: #fff4cc;
+    --warna-oranye-hangat: #e07a48;
+    --warna-merah-lembut: #c8524b;
+    --warna-merah-pastel: #fbe2df;
+
+    /* Bayangan Pixel Art Tegas (Tanpa Blur) */
+    --bayangan-panel:
+        inset 3px 3px 0px rgba(255, 248, 228, 0.25),
+        inset -3px -3px 0px rgba(32, 18, 10, 0.4),
+        6px 6px 0px rgba(30, 18, 10, 0.85);
+    --bayangan-kartu:
+        inset 2px 2px 0px rgba(255, 255, 255, 0.45),
+        inset -2px -2px 0px rgba(120, 82, 48, 0.22),
+        4px 4px 0px rgba(43, 29, 19, 0.85);
+    --bayangan-tombol:
+        inset 3px 3px 0px rgba(255, 255, 255, 0.35),
+        inset -3px -3px 0px rgba(0, 0, 0, 0.25),
+        0 4px 0px var(--ui-garis-pixel);
+    --bayangan-tombol-tekan:
+        inset 2px 2px 0px rgba(0, 0, 0, 0.3),
+        0 1px 0px var(--ui-garis-pixel);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-gelap);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ui-latar-dasar);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Lapisan hangat lembut agar latar cozy tetap nyaman dan konten menonjol */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(38, 28, 18, 0.28) 0%, rgba(32, 24, 16, 0.44) 100%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Bilah Atas Navigasi */
+.bilah-atas {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 24px;
+    background-color: var(--ui-kayu-gelap);
+    border-bottom: 4px solid var(--ui-garis-pixel);
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.25);
+    color: var(--ui-teks-terang);
+}
+
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.lencana-wilayah {
+    font-family: var(--font-pixel-ui);
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+    font-weight: 700;
+    padding: 6px 14px;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: 3px 3px 0 var(--ui-garis-pixel);
+    font-size: 16px;
+}
+
+.info-pemain-header {
+    font-family: var(--font-pixel-baca);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--ui-teks-krem);
+}
+
+.info-pemain-header strong {
+    color: var(--warna-emas-hangat);
+}
+
+.aksi-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Kontainer Utama */
+.wadah-utama {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1260px;
+    margin: 20px auto;
+    padding: 0 20px 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Panel Game Utama Bergaya Bingkai Kayu & Krem Stardew */
+.panel-game {
+    position: relative;
+    background-color: var(--ui-krem-kartu);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 5px solid var(--ui-kayu-sedang);
+    outline-offset: -9px;
+    box-shadow: var(--bayangan-panel);
+    padding: 32px 30px;
+    color: var(--ui-teks-gelap);
+    animation: munculPanelPixel 0.18s steps(3, end);
+}
+
+/* Aksen paku kayu di sudut panel */
+.panel-game::after {
+    content: "";
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--ui-kayu-gelap);
+    box-shadow: -14px 0 0 var(--ui-kayu-gelap);
+    pointer-events: none;
+}
+
+.kepala-judul-wilayah {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.judul-halaman {
+    font-family: var(--font-pixel-judul);
+    font-size: var(--ukuran-judul-halaman);
+    line-height: 1.4;
+    color: var(--ui-kayu-gelap);
+    text-shadow: 2px 2px 0px var(--warna-emas-hangat);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.subjudul-halaman {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-sedang);
+    text-align: center;
+    margin-bottom: 20px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.judul-panel-sub {
+    font-family: var(--font-pixel-ui);
+    font-size: var(--ukuran-nama-wilayah);
+    line-height: 1.3;
+    color: var(--ui-kayu-gelap);
+    margin-bottom: 8px;
+}
+
+.subteks-panel {
+    font-size: var(--ukuran-instruksi);
+    color: var(--ui-teks-sedang);
+    margin-bottom: 14px;
+}
+
+/* Tombol Pixel Art Taktil */
+.tombol {
+    font-family: var(--font-pixel-ui);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    min-width: 48px;
+    padding: 11px 22px;
+    font-size: var(--ukuran-tombol);
+    font-weight: 700;
+    border: 3px solid var(--ui-garis-pixel);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--bayangan-tombol);
+    user-select: none;
+    position: relative;
+    transition: transform 0.08s steps(2, end), background-color 0.08s steps(2, end);
+}
+
+.tombol:hover:not(:disabled) {
+    filter: brightness(1.06);
+}
+
+.tombol:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: var(--bayangan-tombol-tekan);
+}
+
+.tombol:focus-visible {
+    outline: 3px dashed var(--warna-biru-langit);
+    outline-offset: 3px;
+}
+
+.tombol:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.tombol-utama {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+    text-shadow: 1px 1px 0 var(--ui-garis-pixel);
+}
+
+.tombol-aksen {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+.tombol-sekunder {
+    background-color: var(--warna-biru-langit);
+    color: #ffffff;
+    text-shadow: 1px 1px 0 var(--ui-garis-pixel);
+}
+
+.tombol-netral {
+    background-color: var(--ui-kayu-sedang);
+    color: var(--ui-teks-terang);
+    text-shadow: 1px 1px 0 var(--ui-garis-pixel);
+}
+
+.tombol-krem {
+    background-color: var(--ui-krem-lembut);
+    color: var(--ui-teks-gelap);
+}
+
+.tombol-bahaya {
+    background-color: var(--warna-merah-lembut);
+    color: #ffffff;
+    text-shadow: 1px 1px 0 var(--ui-garis-pixel);
+}
+
+.tombol-reset-progres {
+    background-color: #7c3530;
+    color: #fff2ef;
+    border: 3px solid var(--ui-garis-pixel);
+    min-height: 44px;
+    padding: 8px 18px;
+    font-size: 15px;
+}
+
+.tombol-kecil {
+    min-height: 40px;
+    padding: 7px 14px;
+    font-size: 15px;
+}
+
+.baris-tombol {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 22px;
+}
+
+.baris-reset-bawah {
+    margin-top: 22px;
+    padding-top: 16px;
+    border-top: 3px dashed var(--ui-kayu-terang);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-progres-tersimpan {
+    font-family: var(--font-pixel-baca);
+    font-size: 16px;
+    color: var(--ui-teks-sedang);
+}
+
+.info-progres-tersimpan span {
+    font-weight: 700;
+    color: var(--ui-kayu-gelap);
+}
+
+/* Kotak Feedback Interaktif */
+.kotak-pesan {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-instruksi);
+    padding: 13px 18px;
+    font-weight: 700;
+    margin: 14px 0;
+    text-align: center;
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+}
+
+.kotak-pesan.tersembunyi {
+    display: none;
+}
+
+.kotak-pesan.pesan-info {
+    background-color: var(--warna-biru-pastel);
+    color: #1c4460;
+}
+
+.kotak-pesan.pesan-sukses {
+    background-color: var(--warna-hijau-pastel);
+    color: #1f4d21;
+    animation: kilauBenarPixel 0.25s steps(2, end);
+}
+
+.kotak-pesan.pesan-peringatan {
+    background-color: var(--warna-kuning-pastel);
+    color: #63410b;
+}
+
+.kotak-pesan.pesan-kesalahan {
+    background-color: var(--warna-merah-pastel);
+    color: #70211c;
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+/* Status Bar Permainan */
+.baris-status-misi {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    background-color: var(--ui-kayu-panel);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 12px 18px;
+    margin-bottom: 18px;
+    color: var(--ui-teks-terang);
+}
+
+.item-status-misi {
+    font-family: var(--font-pixel-ui);
+    font-weight: 700;
+    color: var(--ui-teks-krem);
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.item-status-misi span {
+    color: var(--warna-emas-hangat);
+}
+
+.item-status-misi span.mode-easy { color: #a7e89e; }
+.item-status-misi span.mode-normal { color: var(--warna-emas-hangat); }
+.item-status-misi span.mode-hard { color: #ffb3a7; }
+
+.lencana-mode {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 4px 10px;
+}
+
+.lencana-mode.mode-easy {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+.lencana-mode.mode-normal {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+}
+
+.lencana-mode.mode-hard {
+    background-color: var(--warna-merah-lembut);
+    color: #ffffff;
+}
+
+/* Kotak Materi / Briefing */
+.panel-materi-briefing {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 24px;
+}
+
+.grid-materi-briefing {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin: 18px 0;
+}
+
+.kartu-info-materi {
+    background-color: var(--ui-krem-kartu);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 16px 18px;
+}
+
+.kartu-info-materi h3 {
+    font-family: var(--font-pixel-ui);
+    font-size: 17px;
+    color: var(--ui-kayu-gelap);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kartu-info-materi ul,
+.kartu-info-materi ol {
+    padding-left: 20px;
+    color: var(--ui-teks-sedang);
+}
+
+.kartu-info-materi li {
+    margin-bottom: 6px;
+}
+
+/* Modal Dialog Pixel */
+.lapisan-modal-pixel {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    background-color: rgba(34, 22, 14, 0.78);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.kotak-modal-pixel {
+    width: 100%;
+    max-width: 580px;
+    max-height: 88vh;
+    overflow-y: auto;
+    background-color: var(--ui-krem-kartu);
+    border: 4px solid var(--ui-garis-pixel);
+    outline: 4px solid var(--ui-kayu-sedang);
+    outline-offset: -8px;
+    box-shadow: var(--bayangan-panel);
+    padding: 26px 24px;
+    text-align: center;
+    animation: munculPanelPixel 0.15s steps(3, end);
+}
+
+.lencana-modal-bahaya {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-merah-lembut);
+    color: #ffffff;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+}
+
+.lencana-modal-info {
+    font-family: var(--font-pixel-ui);
+    display: inline-block;
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px 12px;
+    margin-bottom: 12px;
+}
+
+.judul-modal-pixel {
+    font-family: var(--font-pixel-judul);
+    font-size: 20px;
+    line-height: 1.4;
+    color: var(--ui-kayu-gelap);
+    margin-bottom: 12px;
+}
+
+.teks-modal-pixel {
+    font-family: var(--font-pixel-baca);
+    font-size: var(--ukuran-dialog);
+    color: var(--ui-teks-sedang);
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.aksi-modal-pixel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* Pixel Art Scaling Tajam */
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+img.gambar-belum-tersedia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--ui-krem-lembut);
+    border: 2px dashed var(--ui-kayu-sedang);
+    color: var(--ui-teks-sedang);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px;
+    text-align: center;
+}
+
+.tersembunyi {
+    display: none !important;
+}
+
+/* Dekorasi sudut cozy */
+.baris-dekorasi-cozy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+    opacity: 0.92;
+}
+
+@keyframes munculPanelPixel {
+    0% { opacity: 0.92; transform: translateY(4px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes kilauBenarPixel {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes getarSalahPixel {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 780px) {
+    .grid-materi-briefing {
+        grid-template-columns: 1fr;
+    }
+    .panel-game {
+        padding: 22px 16px;
+    }
+    .bilah-atas {
+        padding: 10px 14px;
+    }
+}
+
+@media (max-width: 540px) {
+    .baris-tombol .tombol {
+        width: 100%;
+    }
+}

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misi Logika - Stage 1: Algoritma Sequential</title>
+    <link rel="icon" type="image/png" href="assets/images/common/mascot.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sequential.css">
+    <link rel="stylesheet" href="css/platformer.css">
+</head>
+<body class="latar-sequential" data-bgm="music-background-3.mp3">
+    <header class="bilah-atas">
+        <div class="info-header">
+            <span class="lencana-wilayah">Stage 1: Sequential Forest</span>
+            <span class="info-pemain-header">Siswa: <strong id="nama-pemain-seq">Siswa SMK</strong> <span id="badge-mode-seq" class="lencana-mode mode-normal">Normal</span></span>
+        </div>
+        <div class="aksi-header">
+            <button type="button" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                Menu Stage
+            </button>
+            <button type="button" id="tombol-suara" class="tombol tombol-netral tombol-kecil" data-sfx-hover data-sfx-click>
+                Suara: Aktif
+            </button>
+        </div>
+    </header>
+
+    <main class="wadah-utama">
+        <section class="panel-game" aria-labelledby="judul-stage1">
+            <div class="kepala-judul-wilayah">
+                <img src="assets/images/common/ui/icon-sequential.png" alt="Ikon Algoritma Sequential" width="52" height="52">
+                <h1 id="judul-stage1" class="judul-halaman" style="margin-bottom: 0;">Stage 1: Algoritma Sequential</h1>
+            </div>
+
+            <!-- FASE A: Halaman Materi & Pengenalan -->
+            <div id="fase-materi-seq" class="panel-materi-briefing">
+                <h2 class="judul-panel-sub" style="text-align: center;">Mengenal Algoritma Sequential (Urutan Langkah)</h2>
+                <p class="subjudul-halaman" style="margin-bottom: 14px;">
+                    <strong>Algoritma Sequential</strong> adalah serangkaian instruksi yang dijalankan secara berurutan satu demi satu dari langkah pertama hingga terakhir.
+                </p>
+
+                <div class="grid-materi-briefing">
+                    <div class="kartu-info-materi">
+                        <h3><img src="assets/images/common/ui/icon-star.png" alt="" width="24" height="24"> Tujuan Pembelajaran</h3>
+                        <ul>
+                            <li>Memahami eksekusi instruksi berurutan dalam pemrograman dan kehidupan sehari-hari.</li>
+                            <li>Menyusun langkah acak dari bank <strong>20 aktivitas harian</strong> di setiap gerbang soal.</li>
+                            <li>Menjelajahi <strong>Sequential Forest</strong>, menginjak monster slime/jamur, dan mengaktifkan <strong>CP 1</strong>.</li>
+                        </ul>
+                    </div>
+
+                    <div class="kartu-info-materi">
+                        <h3><img src="assets/images/common/ui/icon-hint.png" alt="" width="24" height="24"> Contoh Sederhana &amp; Kontrol</h3>
+                        <ol>
+                            <li>Buka aplikasi → Pilih kontak → Ketik pesan → Kirim.</li>
+                            <li>Gerak: <strong>A</strong> (Kiri), <strong>D</strong> (Kanan), <strong>W / Space</strong> (Lompat).</li>
+                            <li>Selesaikan <strong>3 Gerbang Soal</strong> dan capai <strong>Garis Finish</strong>!</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="baris-tombol" style="margin-top: 14px;">
+                    <button type="button" id="tombol-mulai-seq" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                        <img src="assets/images/common/ui/icon-play.png" alt="" width="22" height="22">
+                        Mulai Petualangan Stage 1
+                    </button>
+                    <button type="button" id="tombol-ulang-seq" class="tombol tombol-krem tersembunyi" data-sfx-hover data-sfx-click>
+                        Mulai Ulang dari Awal
+                    </button>
+                </div>
+            </div>
+
+            <!-- FASE B: Arena Platformer 2D Side-Scrolling -->
+            <div id="fase-game-seq" class="tersembunyi">
+                <div class="hud-platformer" aria-label="Status Pemain">
+                    <div class="grup-hud-kiri">
+                        <div class="kotak-hud-item" title="Nyawa (HP)">
+                            <div id="hud-deret-hp" class="deret-hati-hp"></div>
+                            <span id="hud-teks-hp">5/5</span>
+                        </div>
+                        <div class="kotak-hud-item" title="Koin Opsional">
+                            <img src="assets/images/common/ui/coin-hud.png" alt="Koin" width="20" height="20">
+                            <span id="hud-teks-koin">0/15</span>
+                        </div>
+                        <div class="kotak-hud-item" title="3 Gerbang Soal">
+                            <span>Gerbang:</span>
+                            <div id="hud-deret-gerbang" class="deret-gerbang-hud"></div>
+                            <span id="hud-teks-gerbang">0/3</span>
+                        </div>
+                    </div>
+
+                    <div class="grup-hud-kanan">
+                        <div class="kotak-hud-item">CP 1: <span id="hud-teks-cp">Belum</span></div>
+                        <div class="kotak-hud-item">
+                            <img src="assets/images/common/ui/icon-clock.png" alt="" width="18" height="18">
+                            <span id="hud-teks-waktu">0 dtk</span>
+                        </div>
+                        <div class="kotak-hud-item">Skor: <span id="hud-teks-skor">0</span></div>
+                        <button type="button" id="tombol-pause-platformer" class="tombol tombol-krem tombol-kecil" data-sfx-hover data-sfx-click>
+                            Jeda / Materi
+                        </button>
+                    </div>
+                </div>
+
+                <div class="panggung-canvas-wrapper">
+                    <canvas id="platformer-canvas" width="640" height="360" aria-label="Arena Platformer Stage 1 Sequential Forest"></canvas>
+                    <div id="toast-canvas-platformer" class="toast-canvas-platformer tersembunyi" role="status"></div>
+                </div>
+
+                <div class="bar-kontrol-platformer">
+                    <div class="petunjuk-tombol-keyboard">
+                        Kontrol: <kbd>A</kbd> Kiri &bull; <kbd>D</kbd> Kanan &bull; <kbd>W</kbd> / <kbd>Space</kbd> Lompat &bull; Injak atas Slime/Jamur, hindari Kelelawar &amp; Duri!
+                    </div>
+                    <div class="pad-kontrol-sentuh" aria-label="Kontrol sentuh">
+                        <button type="button" id="btn-sentuh-kiri" class="tombol-gerak-sentuh" aria-label="Gerak Kiri">
+                            <img src="assets/images/common/ui/btn-left.png" alt="Kiri">
+                        </button>
+                        <button type="button" id="btn-sentuh-kanan" class="tombol-gerak-sentuh" aria-label="Gerak Kanan">
+                            <img src="assets/images/common/ui/btn-right.png" alt="Kanan">
+                        </button>
+                        <button type="button" id="btn-sentuh-lompat" class="tombol-gerak-sentuh" aria-label="Lompat">
+                            <img src="assets/images/common/ui/btn-jump.png" alt="Lompat">
+                            Lompat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- MODAL PENGHALANG SOAL SEQUENTIAL (Tidak bisa ditutup tanpa menjawab benar) -->
+    <div id="modal-soal-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-gerbang-seq">
+        <div class="kotak-modal-soal-platformer">
+            <div class="header-modal-gerbang">
+                <div>
+                    <span id="lencana-gerbang-seq" class="lencana-kategori-seq">Gerbang Soal 1 / 3</span>
+                    <h2 id="judul-gerbang-seq" class="judul-panel-sub" style="margin: 6px 0 0;">Selesaikan Tantangan Sequential</h2>
+                </div>
+                <span id="badge-hp-modal-gerbang" class="badge-gerbang-hp">HP: 5 / 5</span>
+            </div>
+
+            <div id="pesan-umpan-balik-seq" class="kotak-pesan pesan-info" role="status">
+                Susun langkah-langkah kegiatan di bawah dari awal hingga selesai untuk membuka gerbang!
+            </div>
+
+            <div class="layout-sequential">
+                <aside class="panel-ilustrasi-seq">
+                    <span id="kategori-kegiatan-seq" class="lencana-kategori-seq">Kegiatan</span>
+                    <div class="bungkus-gambar-kegiatan">
+                        <img id="gambar-kegiatan-seq" src="assets/images/stage-1-sequential/activities/bangun-tidur.png" alt="Ilustrasi kegiatan" width="154" height="154">
+                    </div>
+                    <h3 id="judul-kegiatan-seq" class="judul-kegiatan-seq">Memuat...</h3>
+                    <p id="deskripsi-kegiatan-seq" class="deskripsi-kegiatan-seq"></p>
+                    <div class="kartu-pendamping-seq">
+                        <img src="assets/images/stage-1-sequential/characters/char-student.png" alt="Siswa SMK" width="48" height="64">
+                        <span>Perhatikan urutan logis! Jawaban salah mengurangi <strong>1 HP</strong>.</span>
+                    </div>
+                </aside>
+
+                <div class="panel-urutan-seq">
+                    <div class="kepala-urutan-seq">
+                        <h3 class="judul-panel-sub" style="margin-bottom: 0; font-size: 18px;">Susun Urutan Langkah (1 = Pertama)</h3>
+                        <button type="button" id="tombol-bantuan-seq" class="tombol tombol-sekunder tombol-kecil" data-sfx-hover data-sfx-click>
+                            <img src="assets/images/common/ui/icon-hint.png" alt="" width="18" height="18">
+                            Petunjuk
+                        </button>
+                    </div>
+
+                    <p id="teks-petunjuk-inline-seq" class="kotak-pesan pesan-peringatan tersembunyi" style="margin-bottom: 10px;"></p>
+
+                    <div id="daftar-langkah-seq" class="daftar-langkah-seq" aria-label="Daftar langkah untuk diurutkan"></div>
+
+                    <div id="kotak-penjelasan-seq" class="kotak-penjelasan-seq tersembunyi" aria-live="polite">
+                        <img src="assets/images/common/ui/icon-check.png" alt="Benar" width="36" height="36">
+                        <div>
+                            <strong>Urutan Tepat! Penjelasan:</strong>
+                            <p id="teks-penjelasan-seq"></p>
+                        </div>
+                    </div>
+
+                    <div class="baris-tombol" style="margin-top: 14px;">
+                        <button type="button" id="tombol-acak-ulang-seq" class="tombol tombol-krem" data-sfx-hover data-sfx-click>
+                            Acak Ulang
+                        </button>
+                        <button type="button" id="tombol-periksa-seq" class="tombol tombol-utama" data-sfx-hover data-sfx-click>
+                            Periksa Jawaban
+                        </button>
+                        <button type="button" id="tombol-buka-gerbang-seq" class="tombol tombol-aksen tersembunyi" data-sfx-hover data-sfx-click>
+                            Buka Gerbang &amp; Lanjutkan
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pause -->
+    <div id="modal-pause-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-pause-seq">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Permainan Dijeda</span>
+            <h2 id="judul-pause-seq" class="judul-modal-pixel">Jeda — Stage 1 Sequential</h2>
+            <p class="teks-modal-pixel">
+                Susun urutan langkah di setiap gerbang soal dari bank 20 kegiatan harian. Injak monster dari atas dan aktifkan <strong>CP 1</strong>!
+            </p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-lanjut-pause" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Lanjutkan</button>
+                <button type="button" id="tombol-buka-materi-seq" class="tombol tombol-krem" data-sfx-hover data-sfx-click>Lihat Materi</button>
+                <button type="button" id="tombol-ulang-pause" class="tombol tombol-sekunder" data-sfx-hover data-sfx-click>Ulangi Stage</button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">Menu Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Game Over -->
+    <div id="modal-gameover-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-go-seq">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-bahaya">Game Over</span>
+            <h2 id="judul-go-seq" class="judul-modal-pixel">Nyawa Habis!</h2>
+            <p id="teks-gameover-platformer" class="teks-modal-pixel"></p>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-respawn-platformer" class="tombol tombol-utama" data-sfx-hover data-sfx-click>Respawn</button>
+                <button type="button" id="tombol-ulang-gameover" class="tombol tombol-netral" data-sfx-hover data-sfx-click>Reset Stage</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kemenangan Stage 1 -->
+    <div id="modal-menang-platformer" class="lapisan-modal-pixel tersembunyi" role="dialog" aria-modal="true" aria-labelledby="judul-menang-seq">
+        <div class="kotak-modal-pixel">
+            <span class="lencana-modal-info">Stage Selesai!</span>
+            <h2 id="judul-menang-seq" class="judul-modal-pixel">Stage 1: Sequential Forest Berhasil!</h2>
+            <p class="teks-modal-pixel">Semua 3 gerbang algoritma sequential telah dibuka dan kamu mencapai garis finish!</p>
+            <div class="grid-stat-akhir-stage">
+                <div class="kartu-stat-stage"><span>Skor Stage</span><strong id="menang-skor-stage">0 / 100</strong></div>
+                <div class="kartu-stat-stage"><span>Koin</span><strong id="menang-koin-stage">0 / 15</strong></div>
+                <div class="kartu-stat-stage"><span>Sisa HP</span><strong id="menang-hp-stage">5 / 5</strong></div>
+                <div class="kartu-stat-stage"><span>Waktu</span><strong id="menang-waktu-stage">0 dtk</strong></div>
+            </div>
+            <div class="aksi-modal-pixel">
+                <button type="button" id="tombol-ke-stage2" class="tombol tombol-utama" data-sfx-hover data-sfx-click onclick="pindahHalaman('stage2-bubblesort.html', true)">
+                    Lanjut ke Stage 2: Bubble Sort
+                </button>
+                <button type="button" class="tombol tombol-netral" data-sfx-hover data-sfx-click onclick="pindahHalaman('stages.html', true)">
+                    Menu Stage
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/penyimpanan.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/navigasi.js"></script>
+    <script src="js/sequential-data.js"></script>
+    <script src="js/sequential-logic.js"></script>
+    <script src="js/platformer-assets.js"></script>
+    <script src="js/platformer-levels.js"></script>
+    <script src="js/platformer-engine.js"></script>
+    <script src="js/platformer-runner.js"></script>
+    <script src="js/sequential-ui.js"></script>
+</body>
+</html>

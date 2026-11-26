@@ -1,0 +1,299 @@
+/**
+ * File: css/sequential.css
+ * Deskripsi: Gaya tampilan Cozy Pixel Art untuk Stage 1: Algoritma Sequential.
+ */
+
+body.latar-sequential {
+    background-color: #3a4f38;
+    background-image:
+        url("../assets/images/stage-1-sequential/backgrounds/bg-sequential.png"),
+        linear-gradient(180deg, #6d4c33 0%, #9b6a44 50%, #4f6f46 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.layout-sequential {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
+    margin-top: 14px;
+}
+
+.panel-ilustrasi-seq {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.lencana-kategori-seq {
+    font-family: var(--font-pixel-ui);
+    font-size: 13px;
+    font-weight: 700;
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 4px 10px;
+}
+
+.bungkus-gambar-kegiatan {
+    width: 176px;
+    height: 176px;
+    background-color: var(--ui-krem-kartu);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: 3px 3px 0 rgba(43, 29, 19, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.bungkus-gambar-kegiatan img {
+    width: 154px;
+    height: 154px;
+}
+
+.judul-kegiatan-seq {
+    font-family: var(--font-pixel-ui);
+    font-size: 19px;
+    color: var(--ui-kayu-gelap);
+}
+
+.deskripsi-kegiatan-seq {
+    font-size: 15px;
+    color: var(--ui-teks-sedang);
+}
+
+.kartu-pendamping-seq {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    background-color: var(--ui-krem-kartu);
+    border: 2px solid var(--ui-garis-pixel);
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.kartu-pendamping-seq img {
+    width: 48px;
+    height: 64px;
+    flex-shrink: 0;
+}
+
+/* Area Penyusunan Langkah Drag & Drop */
+.panel-urutan-seq {
+    background-color: var(--ui-krem-lembut);
+    border: 3px solid var(--ui-garis-pixel);
+    outline: 3px solid var(--ui-kayu-terang);
+    outline-offset: -7px;
+    box-shadow: var(--bayangan-kartu);
+    padding: 18px 20px;
+}
+
+.kepala-urutan-seq {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.daftar-langkah-seq {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kartu-langkah-seq {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--ui-krem-kartu);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 12px 14px;
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+    transition: transform 0.1s steps(2, end), background-color 0.1s steps(2, end);
+}
+
+.kartu-langkah-seq:hover:not(.terkunci) {
+    background-color: #fff9ea;
+}
+
+.kartu-langkah-seq.sedang-diseret {
+    opacity: 0.55;
+    transform: scale(0.98);
+    cursor: grabbing;
+}
+
+.kartu-langkah-seq.target-drop {
+    border-style: dashed;
+    border-color: var(--warna-biru-langit);
+    background-color: var(--warna-biru-pastel);
+}
+
+.kartu-langkah-seq.terkunci {
+    cursor: default;
+}
+
+.kartu-langkah-seq.kartu-langkah-tepat {
+    background-color: var(--warna-hijau-pastel);
+    border-color: var(--warna-hijau-gelap);
+}
+
+.kartu-langkah-seq.kartu-langkah-salah {
+    background-color: var(--warna-merah-pastel);
+    border-color: var(--warna-merah-lembut);
+    animation: getarSalahPixel 0.25s steps(4, end);
+}
+
+.grip-langkah {
+    width: 18px;
+    height: 26px;
+    flex-shrink: 0;
+    opacity: 0.85;
+}
+
+.nomor-slot-langkah {
+    font-family: var(--font-pixel-ui);
+    min-width: 34px;
+    height: 34px;
+    background-color: var(--ui-kayu-sedang);
+    color: var(--ui-teks-terang);
+    border: 2px solid var(--ui-garis-pixel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.kartu-langkah-tepat .nomor-slot-langkah {
+    background-color: var(--warna-hijau-alami);
+}
+
+.teks-langkah-seq {
+    flex: 1;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ui-teks-gelap);
+    line-height: 1.35;
+}
+
+.kontrol-geser-seq {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.tombol-geser {
+    font-family: var(--font-pixel-ui);
+    width: 34px;
+    height: 28px;
+    background-color: var(--ui-krem-lembut);
+    color: var(--ui-teks-gelap);
+    border: 2px solid var(--ui-garis-pixel);
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tombol-geser:hover:not(:disabled) {
+    background-color: var(--warna-emas-hangat);
+}
+
+.tombol-geser:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* Kotak Penjelasan Setelah Jawaban Benar */
+.kotak-penjelasan-seq {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background-color: var(--warna-hijau-pastel);
+    border: 3px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-kartu);
+    padding: 14px 16px;
+    margin-top: 14px;
+    color: #1c441e;
+}
+
+.kotak-penjelasan-seq img {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+/* Pita Progres 20 Kegiatan */
+.pita-progres-kegiatan {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin: 12px 0;
+    padding: 10px 12px;
+    background-color: var(--ui-krem-lembut);
+    border: 2px solid var(--ui-garis-pixel);
+}
+
+.titik-kegiatan {
+    font-family: var(--font-pixel-ui);
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 2px solid var(--ui-garis-pixel);
+    background-color: var(--ui-krem-kartu);
+    color: var(--ui-teks-gelap);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.titik-kegiatan.selesai {
+    background-color: var(--warna-hijau-alami);
+    color: #ffffff;
+}
+
+.titik-kegiatan.aktif {
+    background-color: var(--warna-emas-hangat);
+    color: var(--ui-teks-gelap);
+    transform: translateY(-2px);
+}
+
+/* Kartu Selesai Stage */
+.panel-selesai-stage {
+    background-color: var(--warna-hijau-pastel);
+    border: 4px solid var(--ui-garis-pixel);
+    box-shadow: var(--bayangan-panel);
+    padding: 24px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+@media (max-width: 860px) {
+    .layout-sequential {
+        grid-template-columns: 1fr;
+    }
+}
